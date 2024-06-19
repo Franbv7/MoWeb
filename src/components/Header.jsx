@@ -15,6 +15,8 @@ import {
 import { useStateContext } from "../context/stateContext";
 import { DarkModeSwitch } from "./DarkModeSwitch";
 import TemporaryDrawer from "./Drawer";
+import { CountryFlags } from "./CountryFlag";
+import ReactCountryFlag from "react-country-flag";
 
 export function Header() {
   const [searchKey, setSearchKey] = useState("");
@@ -138,15 +140,13 @@ export function Header() {
       <nav className={`all-body${darkMode}`}>
         <DarkModeSwitch checked={checked} onChange={handleChangeDarkMode} />
 
-        <TemporaryDrawer items={items} sx={drawerSx} />
-
         {/* <Link to={"/"}>{language === "es-ES" ? "Inicio" : "Home"}</Link>
         <Link to={"/latest_movies"}>
-          {language === "es-ES" ? "Descubre Películas" : "Discover Movies"}
+        {language === "es-ES" ? "Descubre Películas" : "Discover Movies"}
         </Link>
         <Link to={"/tv"}>Series</Link>
         <Link to={"/upcoming"}>
-          {language === "es-ES" ? "Películas próximas" : "Upcoming Movies"}
+        {language === "es-ES" ? "Películas próximas" : "Upcoming Movies"}
         </Link> */}
 
         <form action="" onSubmit={searchMulti}>
@@ -161,13 +161,30 @@ export function Header() {
             onChange={(e) => setSearchKey(e.target.value)}
           />
           <Button variant="outlined" size="small" type="submit">
-            {language === "es-ES" ? "Buscar" : "Search"}
+            {/* {language === "es-ES" ? "Buscar" : "Search"} */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+              height={"2rem"}
+              color="black"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+              />
+            </svg>
           </Button>
         </form>
+        <TemporaryDrawer items={items} sx={drawerSx} />
 
         {/* Country */}
 
-        <Box sx={{ minWidth: 120 }}>
+        {/* <Box sx={{ minWidth: 80 }}>
           <FormControl fullWidth>
             <InputLabel
               id="demo-simple-select-label"
@@ -184,20 +201,22 @@ export function Header() {
               sx={selectSx}
             >
               <MenuItem value={"ES"}>
-                {language === "es-ES" ? "España" : "Spain"}
+                
+                <ReactCountryFlag countryCode="ES" svg />
               </MenuItem>
               <MenuItem value={"US"}>
-                {language === "es-ES" ? "EEUU" : "USA"}
+                
+                <ReactCountryFlag countryCode="US" svg />
               </MenuItem>
             </Select>
           </FormControl>
         </Box>
 
-        <Box sx={{ minWidth: 120 }}>
+        <Box sx={{ minWidth: 80 }}>
           <FormControl fullWidth>
             <InputLabel
               id="demo-simple-select-label"
-              sx={{ color: selectSx.color }}
+              sx={{ color: selectSx.color, minWidth: "0" }}
             >
               {language === "es-ES" ? "Idioma" : "Language"}
             </InputLabel>
@@ -209,11 +228,15 @@ export function Header() {
               onChange={handleChangeLanguage}
               sx={selectSx}
             >
-              <MenuItem value={"es-ES"}>Español</MenuItem>
-              <MenuItem value={"en-US"}>English</MenuItem>
+              <MenuItem value={"es-ES"}>
+                <ReactCountryFlag countryCode="ES" svg />
+              </MenuItem>
+              <MenuItem value={"en-US"}>
+                <ReactCountryFlag countryCode="US" svg />
+              </MenuItem>
             </Select>
           </FormControl>
-        </Box>
+        </Box> */}
       </nav>
     </div>
   );

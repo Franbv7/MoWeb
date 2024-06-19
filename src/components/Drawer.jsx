@@ -9,11 +9,35 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { Link } from "react-router-dom";
 import { useStateContext } from "../context/stateContext";
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import ReactCountryFlag from "react-country-flag";
 
 export default function TemporaryDrawer({ items, sx }) {
-  const { language } = useStateContext;
+  // const { language } = useStateContext;
   const [open, setOpen] = React.useState(false);
-  const { darkMode } = useStateContext();
+  const {
+    country,
+    setCountry,
+    language,
+    setLanguage,
+    darkMode,
+    setDarkMode,
+    checked,
+    setChecked,
+  } = useStateContext();
+
+  const handleChangeCountry = (event) => {
+    setCountry(event.target.value);
+  };
+
+  const handleChangeLanguage = (event) => {
+    setLanguage(event.target.value);
+  };
+
+  const handleChangeDarkMode = () => {
+    setDarkMode((prevDarkMode) => (prevDarkMode === "-dark" ? "" : "-dark"));
+    setChecked(darkMode !== "-dark");
+  };
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
@@ -26,9 +50,60 @@ export default function TemporaryDrawer({ items, sx }) {
   } else {
     color = "#000";
   }
+
+  const drawerSx = darkMode
+    ? {
+        "& .MuiDrawer-paper": {
+          color: "aliceblue",
+          backgroundColor: "black",
+        },
+        "MuiPaper-root": {
+          color: "aliceblue",
+          backgroundColor: "black",
+        },
+      }
+    : {};
+
+  const selectSx = darkMode
+    ? {
+        backgroundColor: "black",
+        color: "aliceblue",
+        ".MuiOutlinedInput-notchedOutline": {
+          borderColor: "aliceblue",
+        },
+        "&:hover .MuiOutlinedInput-notchedOutline": {
+          borderColor: "white",
+        },
+        "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+          borderColor: "white",
+        },
+        ".MuiSvgIcon-root": {
+          color: "aliceblue",
+        },
+      }
+    : {
+        backgroundColor: "white",
+        color: "black",
+        ".MuiOutlinedInput-notchedOutline": {
+          borderColor: "black",
+        },
+        "&:hover .MuiOutlinedInput-notchedOutline": {
+          borderColor: "gray",
+        },
+        "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+          borderColor: "black",
+        },
+        ".MuiSvgIcon-root": {
+          color: "black",
+        },
+        "MuiBox-root css-1dehfy1": {
+          margin: "10px",
+        },
+      };
+
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
-      <List sx={{ height: 50 }}>
+      <List>
         {/* <ListItem disablePadding>
           <ListItemButton>
             <Link
@@ -61,14 +136,67 @@ export default function TemporaryDrawer({ items, sx }) {
         ))}
       </List>
       <Divider />
+      <Box sx={{ minWidth: 80 }}>
+        <FormControl fullWidth>
+          <InputLabel
+            id="demo-simple-select-label"
+            sx={{ color: selectSx.color }}
+          >
+            {language === "es-ES" ? "País" : "Country"}
+          </InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={country}
+            label={language === "es-ES" ? "País" : "Country"}
+            onChange={handleChangeCountry}
+            sx={selectSx}
+          >
+            <MenuItem value={"ES"}>
+              {/* {language === "es-ES" ? "España" : "Spain"} */}
+              <ReactCountryFlag countryCode="ES" svg />
+            </MenuItem>
+            <MenuItem value={"US"}>
+              {/* {language === "es-ES" ? "EEUU" : "USA"} */}
+              <ReactCountryFlag countryCode="US" svg />
+            </MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
+
+      <Box sx={{ minWidth: 80 }}>
+        <FormControl fullWidth>
+          <InputLabel
+            id="demo-simple-select-label"
+            sx={{ color: selectSx.color, minWidth: "0" }}
+          >
+            {language === "es-ES" ? "Idioma" : "Language"}
+          </InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={language}
+            label={language === "es-ES" ? "Idioma" : "Language"}
+            onChange={handleChangeLanguage}
+            sx={selectSx}
+          >
+            <MenuItem value={"es-ES"}>
+              <ReactCountryFlag countryCode="ES" svg />
+            </MenuItem>
+            <MenuItem value={"en-US"}>
+              <ReactCountryFlag countryCode="US" svg />
+            </MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
     </Box>
   );
 
   return (
     <div>
-      <Button onClick={toggleDrawer(true)}>
-        {language === "en-US" ? "More options" : "Más opciones"}
-        {/* <img src="/burger_line.png" alt="" /> */}
+      <Button onClick={toggleDrawer(true)} sx={{ padding: 0 }}>
+        {/* {language === "en-US" ? "More options" : "Más opciones"} */}
+        <img height={"30rem"} src="/burger_line.png" alt="" />
         {/* <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
