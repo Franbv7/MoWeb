@@ -17,8 +17,6 @@ import { SimilarMovies } from "./pages/SimilarMovies";
 import { EpisodeById } from "./pages/EpisodeById";
 import Test from "./pages/Test";
 
-import { SpeedInsights } from "@vercel/speed-insights/next";
-
 function App() {
   return (
     <>
