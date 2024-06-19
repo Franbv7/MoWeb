@@ -43,13 +43,7 @@ export default function TemporaryDrawer({ items, sx }) {
     setOpen(newOpen);
   };
 
-  let color;
-
-  if (darkMode) {
-    color = "aliceblue";
-  } else {
-    color = "#000";
-  }
+  const color = darkMode ? "aliceblue" : "black";
 
   const drawerSx = darkMode
     ? {
@@ -102,7 +96,11 @@ export default function TemporaryDrawer({ items, sx }) {
       };
 
   const DrawerList = (
-    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+    <Box
+      sx={{ width: 250, height: "100vh" }}
+      role="presentation"
+      onClick={toggleDrawer(false)}
+    >
       <List>
         {/* <ListItem disablePadding>
           <ListItemButton>
@@ -196,7 +194,22 @@ export default function TemporaryDrawer({ items, sx }) {
     <div>
       <Button onClick={toggleDrawer(true)} sx={{ padding: 0 }}>
         {/* {language === "en-US" ? "More options" : "Más opciones"} */}
-        <img height={"30rem"} src="/burger_line.png" alt="" />
+        {/* <img height={"30rem"} src="/burger_line.png" alt="" /> */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="2em"
+          height="2em"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="none"
+            stroke={color}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M3 6.001h18m-18 6h18m-18 6h18"
+          />
+        </svg>
         {/* <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

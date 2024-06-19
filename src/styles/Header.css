@@ -8,7 +8,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 nav a {
@@ -31,6 +31,17 @@ input {
   background: transparent;
 }
 
+/* form {
+  border-bottom: 1px solid black;
+} */
+
 form button:hover {
   transform: scale(1.2);
+}
+
+@media (max-width: 450px) {
+  input {
+    width: 10rem;
+    border-bottom: 1px solid black;
+  }
 }

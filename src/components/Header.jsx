@@ -88,6 +88,8 @@ export function Header() {
           { item: "Registro", direction: "/register" },
         ];
 
+  const color = darkMode ? "aliceblue" : "black";
+
   const drawerSx = darkMode
     ? {
         "& .MuiDrawer-paper": {
@@ -152,17 +154,14 @@ export function Header() {
         <form action="" onSubmit={searchMulti}>
           <input
             type="text"
-            placeholder={
-              language === "es-ES"
-                ? "Vengadores, Futurama..."
-                : "Avengers, Futurama..."
-            }
+            placeholder={"Buscar"}
             value={searchKey}
             onChange={(e) => setSearchKey(e.target.value)}
+            style={{ borderBottom: `1px solid ${color}` }}
           />
-          <Button variant="outlined" size="small" type="submit">
+          <Button>
             {/* {language === "es-ES" ? "Buscar" : "Search"} */}
-            <svg
+            {/* <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -176,6 +175,23 @@ export function Header() {
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+              />
+            </svg> */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="2em"
+              height="2em"
+              viewBox="0 0 24 24"
+              color="black"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.5"
+                d="M17.5 17.5L22 22m-2-11a9 9 0 1 0-18 0a9 9 0 0 0 18 0"
+                color="currentColor"
               />
             </svg>
           </Button>
