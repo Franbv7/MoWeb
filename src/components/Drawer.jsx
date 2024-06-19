@@ -67,9 +67,9 @@ export default function TemporaryDrawer({ items, sx }) {
   return (
     <div>
       <Button onClick={toggleDrawer(true)}>
-        {/* {language === "en-US" ? "More options" : "Más opciones"} */}
+        {language === "en-US" ? "More options" : "Más opciones"}
         {/* <img src="/burger_line.png" alt="" /> */}
-        <svg
+        {/* <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 30 30"
@@ -82,7 +82,7 @@ export default function TemporaryDrawer({ items, sx }) {
             strokeLinejoin="round"
             d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
           />
-        </svg>
+        </svg> */}
       </Button>
       <Drawer open={open} onClose={toggleDrawer(false)} sx={sx}>
         {DrawerList}
