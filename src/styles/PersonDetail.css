@@ -1,0 +1,19 @@
+.person-details-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  /* width: 70vw; */
+}
+
+.person-details-body p {
+  width: 70vw;
+}
+
+.credits {
+  display: flex;
+}
+
+.person-photo {
+  width: 25vw;
+}

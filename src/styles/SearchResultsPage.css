@@ -1,0 +1,144 @@
+/* .search-results-body {
+  width: 70rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  position: relative;
+  padding: 20px;
+}
+
+.search-results-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70rem;
+}
+
+.search-results-list img {
+  width: 25vw;
+}
+
+.search-results-list p {
+  max-width: 50rem;
+}
+
+.search-results-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+h1 {
+  margin: 2px;
+} */
+
+.search-results-body {
+  width: 70rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  position: relative;
+  padding: 20px;
+  font-family: "StreetLCG2";
+}
+
+.search-results-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70rem;
+}
+
+.search-results-list img {
+  width: 25vw;
+}
+
+.search-results-list p {
+  max-width: 50rem;
+  font-size: 1.5rem;
+}
+
+.search-results-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+  border-bottom: 1px solid black;
+  padding-bottom: 1rem;
+}
+
+.search-results-list h1 {
+  margin: 2px;
+  font-size: 5rem;
+}
+
+.search-results-list h3 {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+.search-results-info {
+  display: flex;
+  gap: 5rem;
+  min-width: 70rem;
+}
+
+.search-results-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.search-results-list-dark {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70rem;
+}
+
+.search-results-list-dark img {
+  width: 25vw;
+}
+
+.search-results-list-dark p {
+  max-width: 50rem;
+  font-size: 1.5rem;
+}
+
+.search-results-list-dark li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+  border-bottom: 1px solid aliceblue;
+  padding-bottom: 1rem;
+}
+
+.search-results-info-dark {
+  display: flex;
+  gap: 5rem;
+}
+
+.search-results-text-dark {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.search-results-list-dark h1 {
+  margin: 2px;
+  font-size: 5rem;
+}
+
+.search-results-list-dark h3 {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}

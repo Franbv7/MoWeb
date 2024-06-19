@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Karma:wght@300;400;500;600;700&family=Press+Start+2P&display=swap");
+
+.home-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Headland One";
+}
+
+.home-body h1 {
+  font-family: "Audiowide";
+  font-size: 5rem;
+}
+
+.home-body-dark {
+  color: white;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Headland One";
+}
+
+.home-body-dark h1 {
+  font-family: "Audiowide";
+  font-size: 5rem;
+}
+
+.carousel {
+  width: 45vw;
+}
+
+.carousel img {
+  width: 45vw;
+  height: 100%;
+}
+
+.description {
+  display: flex;
+  justify-content: center;
+}
+
+.all-trending {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  width: 70vw;
+}
+
+.sliders {
+  list-style: none;
+  display: flex;
+  overflow: auto;
+  overflow-y: hidden;
+  gap: 2rem;
+  text-decoration: none;
+}
+
+.sliders li {
+  height: 234px;
+}
+
+.sliders img {
+  width: 21rem;
+}
+
+/* .trending-movie {
+  list-style: none;
+  display: flex;
+  overflow: auto;
+  gap: 2rem;
+  text-decoration: none;
+} */
+
+/* .trending-movie img {
+  width: 21rem;
+} */
+
+::-webkit-scrollbar {
+  border-radius: 0.5rem;
+  height: 0.4rem;
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: gray;
+  transform: scale(1.2);
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}

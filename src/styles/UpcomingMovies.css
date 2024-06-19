@@ -1,0 +1,107 @@
+.upcoming-movies-body {
+  width: 70rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  position: relative;
+  padding: 20px;
+  font-family: "StreetLCG2";
+}
+
+.upcoming-movies-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70rem;
+}
+
+.upcoming-movies-list img {
+  width: 25vw;
+}
+
+.upcoming-movies-list p {
+  max-width: 50rem;
+  font-size: 1.5rem;
+}
+
+.upcoming-movies-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+  border-bottom: 1px solid black;
+  padding-bottom: 1rem;
+  min-width: 70rem;
+}
+
+.upcoming-movies-list h1 {
+  margin: 2px;
+  font-size: 5rem;
+}
+
+.upcoming-movies-list h3 {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+.movie-info {
+  display: flex;
+  gap: 5rem;
+}
+
+.movie-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.movies-list-dark {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70rem;
+}
+
+.upcoming-movies-list-dark img {
+  width: 25vw;
+}
+
+.upcoming-movies-list-dark p {
+  max-width: 50rem;
+  font-size: 1.5rem;
+}
+
+.upcoming-movies-list-dark li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+  border-bottom: 1px solid aliceblue;
+  padding-bottom: 1rem;
+  min-width: 70rem;
+}
+
+.movie-info-dark {
+  display: flex;
+  gap: 5rem;
+}
+
+.movie-text-dark {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.upcoming-movies-list-dark h1 {
+  margin: 2px;
+  font-size: 5rem;
+}
+
+.upcoming-movies-list-dark h3 {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}

@@ -1,0 +1,45 @@
+/* .images-carousel {
+  width: 500px;
+} */
+
+.details-body {
+  display: flex;
+  justify-content: center;
+}
+
+.serie-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .serie-details img {
+  width: 45vw;
+} */
+
+.serie-details p {
+  width: 70vw;
+}
+
+.tv-show-credits {
+  list-style: none;
+  text-decoration: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.tv-show-credits Figure {
+  width: 100px;
+}
+
+.tv-show-credits-container {
+  width: 70rem;
+  overflow-x: scroll;
+}
+
+.credits-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
