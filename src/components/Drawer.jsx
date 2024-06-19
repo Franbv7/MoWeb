@@ -28,7 +28,7 @@ export default function TemporaryDrawer({ items, sx }) {
   }
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
-      <List sx={{ height: 250 }}>
+      <List sx={{ height: 50 }}>
         {/* <ListItem disablePadding>
           <ListItemButton>
             <Link
