@@ -95,13 +95,18 @@ export function Header() {
         "& .MuiDrawer-paper": {
           color: "aliceblue",
           backgroundColor: "black",
+          height: "50vh",
         },
         "MuiPaper-root": {
           color: "aliceblue",
           backgroundColor: "black",
         },
       }
-    : {};
+    : {
+        "& .MuiDrawer-paper": {
+          height: "50vh",
+        },
+      };
 
   const selectSx = darkMode
     ? {
