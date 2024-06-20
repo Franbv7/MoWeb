@@ -98,7 +98,7 @@ export const StateProvider = ({ children }) => {
   useEffect(() => {
     const savedDarkMode = localStorage.getItem("darkMode");
     if (savedDarkMode !== false) {
-      setDarkMode(JSON.parse(savedDarkMode));
+      setDarkMode(savedDarkMode);
     }
 
     const savedCountry = localStorage.getItem("country");
@@ -113,7 +113,7 @@ export const StateProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+    localStorage.setItem("darkMode", darkMode);
   }, [darkMode]);
 
   useEffect(() => {
