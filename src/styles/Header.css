@@ -40,4 +40,9 @@ form button:hover {
     width: 10rem;
     border-bottom: 1px solid black;
   }
+
+  form {
+    display: flex;
+    width: 50vw;
+  }
 }

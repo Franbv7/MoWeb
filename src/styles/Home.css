@@ -102,4 +102,16 @@
   .carousel img {
     width: 90vw;
   }
+
+  .home-body h1 {
+    font-size: 4rem;
+  }
+
+  .title {
+    align-items: center;
+  }
+
+  .title svg {
+    width: 3em;
+  }
 }
