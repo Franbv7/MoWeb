@@ -152,11 +152,11 @@ export default function TemporaryDrawer({ items, sx }) {
           >
             <MenuItem value={"ES"}>
               {/* {language === "es-ES" ? "España" : "Spain"} */}
-              <ReactCountryFlag countryCode="ES" svg />
+              <ReactCountryFlag countryCode="ES" svg /> España
             </MenuItem>
             <MenuItem value={"US"}>
               {/* {language === "es-ES" ? "EEUU" : "USA"} */}
-              <ReactCountryFlag countryCode="US" svg />
+              <ReactCountryFlag countryCode="US" svg /> USA
             </MenuItem>
           </Select>
         </FormControl>
@@ -179,10 +179,10 @@ export default function TemporaryDrawer({ items, sx }) {
             sx={selectSx}
           >
             <MenuItem value={"es-ES"}>
-              <ReactCountryFlag countryCode="ES" svg />
+              <ReactCountryFlag countryCode="ES" svg /> Español
             </MenuItem>
             <MenuItem value={"en-US"}>
-              <ReactCountryFlag countryCode="US" svg />
+              <ReactCountryFlag countryCode="US" svg /> English
             </MenuItem>
           </Select>
         </FormControl>

@@ -31,10 +31,6 @@ input {
   background: transparent;
 }
 
-/* form {
-  border-bottom: 1px solid black;
-} */
-
 form button:hover {
   transform: scale(1.2);
 }

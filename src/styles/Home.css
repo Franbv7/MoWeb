@@ -65,17 +65,9 @@
   width: 21rem;
 }
 
-/* .trending-movie {
-  list-style: none;
+.title {
   display: flex;
-  overflow: auto;
-  gap: 2rem;
-  text-decoration: none;
-} */
-
-/* .trending-movie img {
-  width: 21rem;
-} */
+}
 
 ::-webkit-scrollbar {
   border-radius: 0.5rem;
@@ -96,4 +88,18 @@
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
+}
+
+@media (max-width: 450px) {
+  .all-trending {
+    width: 90vw;
+  }
+
+  .carousel {
+    width: 90vw;
+  }
+
+  .carousel img {
+    width: 90vw;
+  }
 }
