@@ -323,7 +323,7 @@ export function MovieById() {
           </Button>
         </section>
 
-        <div>
+        <div className="movie-providers-div">
           <h3>Comprar</h3>
           <ul className="movie-providers">
             {providers && providers.buy ? (

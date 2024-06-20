@@ -124,10 +124,28 @@
   align-items: center;
 }
 
+.movie-providers-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
 .movie-providers {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   list-style: none;
+  width: 90vw;
+}
+
+.movie-providers li {
+  width: 10vw;
+  font-size: 0.5rem;
+}
+
+.movie-providers img {
+  width: 5vw;
 }
 
 .dark {
@@ -150,6 +168,20 @@
 
   .movie-credits img {
     width: 30vw;
+  }
+
+  .movie-providers {
+    width: 90vw;
+    gap: 10px;
+  }
+
+  .movie-providers li {
+    width: 10vw;
+    font-size: 0.5rem;
+  }
+
+  .movie-providers img {
+    width: 10vw;
   }
 
   iframe {
