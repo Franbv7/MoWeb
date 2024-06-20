@@ -1,24 +1,4 @@
 /* .discover-series-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.discover-series-body img {
-  width: 30vw;
-}
-
-.discover-series-body ul li {
-  margin-top: 4rem;
-}
-
-.discover-series-series {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 70vw;
-} */
-.discover-series-body {
   width: 70rem;
   margin: auto;
   display: flex;
@@ -28,14 +8,24 @@
   position: relative;
   padding: 20px;
   font-family: "StreetLCG2";
-}
+} */
 
+.discover-series-body {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  position: relative;
+  padding: 20px;
+  font-family: "StreetLCG2";
+}
 .series-list {
   list-style: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 70rem;
+  /* width: 70rem; */
 }
 
 .series-list img {
@@ -47,14 +37,24 @@
   font-size: 1.5rem;
 }
 
-.series-list li {
+.series-list-li {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 3rem;
   border-bottom: 1px solid black;
   padding-bottom: 1rem;
-  min-width: 70rem;
+  /* min-width: 70rem; */
+}
+
+.series-list-lidark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+  border-bottom: 1px solid aliceblue;
+  padding-bottom: 1rem;
+  /* min-width: 70rem; */
 }
 
 .series-list h1 {
@@ -70,7 +70,7 @@
 .series-info {
   display: flex;
   gap: 5rem;
-  min-width: 70rem;
+  width: 65vw;
 }
 
 .series-text {
@@ -79,24 +79,24 @@
   justify-content: space-around;
 }
 
-.series-list-dark {
+/* .series-list-dark {
   list-style: none;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 70rem;
-}
+} */
 
-.series-list-dark img {
+/* .series-list-dark img {
   width: 25vw;
-}
+} */
 
-.series-list-dark p {
+/* .series-list-dark p {
   max-width: 50rem;
   font-size: 1.5rem;
-}
+} */
 
-.series-list-dark li {
+/* .series-list-dark li {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -104,25 +104,62 @@
   border-bottom: 1px solid aliceblue;
   padding-bottom: 1rem;
   min-width: 70rem;
-}
+} */
 
-.series-info-dark {
+/* .series-info-dark {
   display: flex;
   gap: 5rem;
-}
+} */
 
-.series-text-dark {
+/* .series-text-dark {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-}
+} */
 
-.series-list-dark h1 {
+/* .series-list-dark h1 {
   margin: 2px;
   font-size: 5rem;
-}
+} */
 
-.series-list-dark h3 {
+/* .series-list-dark h3 {
   margin-bottom: 1rem;
   font-size: 3rem;
+} */
+
+.dark {
+  background-color: #000;
+  color: aliceblue;
+}
+
+@media (max-width: 450px) {
+  .discover-series-body {
+    width: 90vw;
+  }
+
+  .series-list {
+    width: 90vw;
+  }
+
+  .series-list h3 {
+    max-width: 90vw;
+    font-size: 2rem;
+  }
+
+  .series-list li {
+    max-width: 90vw;
+  }
+
+  .series-list p {
+    max-width: 60vw;
+    font-size: 1rem;
+  }
+
+  .series-text {
+    max-width: 90vw;
+  }
+
+  .series-info {
+    gap: 1rem;
+  }
 }

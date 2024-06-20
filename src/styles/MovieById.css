@@ -1,3 +1,10 @@
+.movie-details-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
 .movie-details-credits {
   display: flex;
   flex-direction: column;
@@ -13,6 +20,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 0.5rem;
 }
 
 .movie-details p {
@@ -33,8 +41,12 @@
   align-items: center;
 }
 
+.credits-section {
+  padding: 1rem;
+}
+
 .movie-credits-container {
-  width: 72rem;
+  width: 90vw;
   overflow-x: scroll;
 }
 
@@ -69,18 +81,18 @@
   ); /* Ajusta los colores y opacidades según necesites */
 }
 
-.image-container-dark {
+.image-containerdark {
   position: relative;
   display: inline-block;
 }
 
-.image-container-dark img {
+.image-containerdark img {
   display: block;
   /* width: 100%; */
   height: auto;
 }
 
-.image-container-dark::after {
+.image-containerdark::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -96,8 +108,8 @@
 
 .movie-logo {
   position: absolute;
-  top: 10px;
-  left: 0;
+  top: 85px;
+  left: 10px;
   width: 30%;
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
 }
@@ -116,4 +128,32 @@
   display: flex;
   justify-content: space-evenly;
   list-style: none;
+}
+
+.dark {
+  background-color: #000;
+  color: aliceblue;
+}
+
+@media (max-width: 450px) {
+  .movie-details-credits {
+    width: 90vw;
+  }
+
+  .movie-credits-container {
+    width: 90vw;
+  }
+
+  .credits-section {
+    width: 90vw;
+  }
+
+  .movie-credits img {
+    width: 30vw;
+  }
+
+  iframe {
+    width: 90vw;
+    height: auto;
+  }
 }

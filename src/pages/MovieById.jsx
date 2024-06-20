@@ -280,12 +280,12 @@ export function MovieById() {
     ));
   };
 
-  const darkModeClass = darkMode ? "-dark" : "";
+  const darkModeClass = darkMode ? "dark" : "";
 
   return (
     <>
       <Header />
-      <div className={`all-body${darkModeClass}`}>
+      <div className={`movie-details-body ${darkModeClass}`}>
         <section className={`movie-details`}>
           <div className={`image-container${darkModeClass}`}>
             <div className="movie-logo-container">
@@ -303,17 +303,21 @@ export function MovieById() {
               alt="Backdrop de la película"
             />
           </div>
-          Géneros:{" "}
+          {/* Géneros:{" "}
           {movieDetails.genre_ids
             ?.map((genreId) => {
               const genre = genres.find((genre) => genre.id === genreId);
               return genre ? genre.name : "Desconocido";
             })
-            .join(", ")}
+            .join(", ")} */}
           <p>{movieDetails.overview}</p>
+          <p>
+            {language === "es-ES" ? "Géneros:" : "Genres:"}{" "}
+            {movieDetails?.genres.map((genre) => genre.name).join(", ")}
+          </p>
           <p>Fecha de lanzamiento: {movieDetails.release_date}</p>
-          <p>Popularidad: {movieDetails.popularity}</p>
           <p>Promedio de votos: {movieDetails.vote_average}</p>
+          <p>Popularidad: {movieDetails.popularity}</p>
           <Button variant="outlined" size="small">
             <Link to={`/similarMovies/${movieDetails?.id}`}>Similares</Link>
           </Button>

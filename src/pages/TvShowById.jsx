@@ -211,12 +211,12 @@ export function TvShowById() {
   const logoSerie = logo?.find((logoItem) => logoItem.iso_639_1 === logoLang);
   // console.log("logoPeli ->", logoSerie);
 
-  const darkModeClass = darkMode ? "-dark" : "";
+  const darkModeClass = darkMode ? "dark" : "";
 
   return (
     <>
       <Header />
-      <div className={`all-body${darkModeClass}`}>
+      <div className={`serie-details-body ${darkModeClass}`}>
         <section className="serie-details">
           {/* <h2>{tvShow?.name}</h2> */}
           <div className={`image-container${darkModeClass}`}>
@@ -261,12 +261,12 @@ export function TvShowById() {
           />
         )}
 
-        <div className="details-body"></div>
+        <section className="seire-details-credits"></section>
         {credits && (
           <section className="credits-section">
             <h3>{language === "es-ES" ? "Créditos" : "Credits"}</h3>
-            <div className="tv-show-credits-container">
-              <ul className="tv-show-credits">
+            <div className="serie-credits-container">
+              <ul className="serie-credits">
                 {credits?.cast.map((person) => (
                   <li key={person.id}>
                     <Link to={`/person/${person.id}`}>

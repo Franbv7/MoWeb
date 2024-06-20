@@ -49,20 +49,25 @@ export function LatestSeries() {
     });
   }, [page]);
 
+  const darkModeClass = darkMode ? "dark" : "";
+
   return (
     <>
       <Header />
-      <div className={`all-body${darkMode}  `}>
-        <div className="discover-series-body">
+      <div className={`all-body ${darkModeClass}`}>
+        <div className={`discover-series-body ${darkModeClass}`}>
           <h1>
             {language === "es-ES" ? "Descubre Series" : "Discover Series"}
           </h1>
           <div>
-            <ul className={`series-list${darkMode}`}>
+            <ul className={`series-list ${darkModeClass}`}>
               {series?.map(
                 (serie) =>
                   serie.poster_path && (
-                    <li className="discover-series-series" key={serie.id}>
+                    <li
+                      className={`series-list-li${darkModeClass}`}
+                      key={serie.id}
+                    >
                       <h3>{serie.name}</h3>
                       <div className="series-info">
                         <Link to={`/tv/${serie.id}`}>

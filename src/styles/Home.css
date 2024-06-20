@@ -12,22 +12,22 @@
   font-size: 5rem;
 }
 
-.home-body-dark {
+/* .home-body-dark {
   color: white;
   background-color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: "Headland One";
-}
+} */
 
-.home-body-dark h1 {
+/* .home-body-dark h1 {
   font-family: "Audiowide";
   font-size: 5rem;
-}
+} */
 
 .carousel {
-  width: 50vw;
+  width: 45vw;
 }
 
 .carousel img {
@@ -88,6 +88,11 @@
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
+}
+
+.dark {
+  background-color: #000;
+  color: aliceblue;
 }
 
 @media (max-width: 450px) {

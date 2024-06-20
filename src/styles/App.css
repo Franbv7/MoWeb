@@ -8,7 +8,12 @@
 
 a {
   text-decoration: none;
-  color: #000;
+  /* color: #000; */
+  color: black;
+}
+
+.dark a {
+  color: aliceblue;
 }
 
 .all-body-dark {
@@ -81,6 +86,10 @@ a {
 .pagination-dark li div {
   background-color: #000;
   color: aliceblue;
+}
+
+.credits-section {
+  padding: 1rem;
 }
 
 .css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {

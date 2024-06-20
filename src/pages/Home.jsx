@@ -35,10 +35,10 @@ export function HomePage() {
 
   const color = darkMode ? "aliceblue" : "black";
 
-  const darkModeClass = darkMode ? "-dark" : "";
+  const darkModeClass = darkMode ? "dark" : "";
 
   return (
-    <div className={`all-body${darkModeClass}`}>
+    <div className={`all-body ${darkModeClass}`}>
       <Header />
       <div className="home-body">
         <div className="title">
