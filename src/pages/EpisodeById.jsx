@@ -24,7 +24,7 @@ export function EpisodeById() {
     console.log(episodeDetails);
   }, [seriesId, language]);
 
-  const darkModeClass = darkMode ? "dark" : "";
+  const darkModeClass = darkMode ? "-dark" : "";
 
   return (
     <>

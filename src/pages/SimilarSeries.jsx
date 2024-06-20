@@ -24,7 +24,7 @@ export function SimilarSeries() {
     console.log(similarSerie);
   }, [serieId]);
 
-  const darkModeClass = darkMode ? "dark" : "";
+  const darkModeClass = darkMode ? "-dark" : "";
 
   return (
     <>

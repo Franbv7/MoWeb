@@ -280,7 +280,7 @@ export function MovieById() {
     ));
   };
 
-  const darkModeClass = darkMode ? "dark" : "";
+  const darkModeClass = darkMode ? "-dark" : "";
 
   return (
     <>

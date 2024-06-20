@@ -37,7 +37,7 @@ export function UpcomingMovies() {
     });
   }, [page]);
 
-  const darkModeClass = darkMode ? "dark" : "";
+  const darkModeClass = darkMode ? "-dark" : "";
 
   return (
     <>

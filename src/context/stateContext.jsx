@@ -9,7 +9,7 @@
 //   const API_KEY = import.meta.env.VITE_API_KEY; // Accede a la variable de entorno API_KEY
 //   const [country, setCountry] = useState("US");
 //   const [language, setLanguage] = useState("en-US");
-//   const [darkMode, setDarkMode] = useState(null); // Estado inicial para el modo oscuro
+//   const [darkMode, setDarkMode] = useState(false); // Estado inicial para el modo oscuro
 //   const [checked, setChecked] = useState(false);
 
 //   let logoLang;
@@ -21,7 +21,7 @@
 //   // Cargar el estado inicial desde localStorage al montar el componente
 //   useEffect(() => {
 //     const savedDarkMode = localStorage.getItem("darkMode");
-//     if (savedDarkMode === null) {
+//     if (savedDarkMode !== null) {
 //       setDarkMode(JSON.parse(savedDarkMode));
 //     }
 
@@ -82,11 +82,11 @@ const Context = createContext();
 export const StateProvider = ({ children }) => {
   const IMAGE_PATH = "https://image.tmdb.org/t/p/original";
   const CREDIT_IMAGE_PATH = "https://image.tmdb.org/t/p/w200";
-  const API_URL = import.meta.env.VITE_API_URL; // Accede a la variable de entorno API_URL
-  const API_KEY = import.meta.env.VITE_API_KEY; // Accede a la variable de entorno API_KEY
+  const API_URL = import.meta.env.VITE_API_URL;
+  const API_KEY = import.meta.env.VITE_API_KEY;
   const [country, setCountry] = useState("US");
   const [language, setLanguage] = useState("en-US");
-  const [darkMode, setDarkMode] = useState(false); // Estado inicial para el modo oscuro
+  const [darkMode, setDarkMode] = useState(false);
   const [checked, setChecked] = useState(false);
 
   let logoLang;
@@ -95,7 +95,6 @@ export const StateProvider = ({ children }) => {
   language === "en-US" ? (logoLang = "en") : (logoLang = "es");
   language === "en-US" ? (providerLang = "US") : (providerLang = "ES");
 
-  // Cargar el estado inicial desde localStorage al montar el componente
   useEffect(() => {
     const savedDarkMode = localStorage.getItem("darkMode");
     if (savedDarkMode !== null) {
@@ -113,7 +112,6 @@ export const StateProvider = ({ children }) => {
     }
   }, []);
 
-  // Guardar cambios en localStorage cuando darkMode, country o language cambian
   useEffect(() => {
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
   }, [darkMode]);

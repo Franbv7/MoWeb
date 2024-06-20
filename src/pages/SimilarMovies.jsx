@@ -29,7 +29,7 @@ export function SimilarMovies() {
     console.log("Origin Movie->", originMovie);
   }, [movieId]);
 
-  const darkModeClass = darkMode ? "dark" : "";
+  const darkModeClass = darkMode ? "-dark" : "";
 
   return (
     <>

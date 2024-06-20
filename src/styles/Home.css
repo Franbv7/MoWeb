@@ -27,7 +27,7 @@
 }
 
 .carousel {
-  width: 45vw;
+  width: 50vw;
 }
 
 .carousel img {
@@ -113,5 +113,9 @@
 
   .title svg {
     width: 3em;
+  }
+
+  .MuiListItem-root {
+    height: "10vw";
   }
 }

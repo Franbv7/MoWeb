@@ -39,7 +39,7 @@ export function SearchResultsPage() {
 
   console.log("darkMode->", darkMode);
 
-  const darkModeClass = darkMode ? "dark" : "";
+  const darkModeClass = darkMode ? "-dark" : "";
 
   return (
     <>

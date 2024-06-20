@@ -42,13 +42,13 @@ export function DiscoverMovies() {
   return (
     <>
       <Header />
-      <div className={`all-body${darkModeClass}`}>
+      <div className={`all-body ${darkModeClass}`}>
         <div className="discover-movies-body">
           <h1>
             {language === "es-ES" ? "Descubre Películas" : "Discover Movies"}
           </h1>
           <div>
-            <ul className={`movies-list${darkModeClass}`}>
+            <ul className={`movies-list ${darkModeClass}`}>
               {movies?.map((movie) => (
                 <li key={movie.id}>
                   <h3>{movie.title}</h3>

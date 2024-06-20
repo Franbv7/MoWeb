@@ -8,7 +8,7 @@ import { SearchResultsPage } from "./components/SearchResultsPage";
 import { PersonDetail } from "./components/PersonDetail";
 import { NewUser } from "./components/NewUser";
 
-import { StateProvider } from "./context/stateContext";
+// import { StateProvider } from "./context/stateContext";
 import { TvShowById } from "./pages/TvShowById";
 import { DiscoverMovies } from "./pages/DiscoverMovies";
 import { HomePage } from "./pages/Home";
@@ -20,26 +20,24 @@ import Test from "./pages/Test";
 function App() {
   return (
     <>
-      <StateProvider>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/discover_movies" element={<DiscoverMovies />} />
-          <Route path="/movie/:movieId" element={<MovieById />} />
-          <Route path="/upcoming" element={<UpcomingMovies />} />
-          <Route path="/tv" element={<LatestSeries />} />
-          <Route path="/tv/:tvShowId" element={<TvShowById />} />
-          <Route path="/search" element={<SearchResultsPage />} />
-          <Route path="/person/:personId" element={<PersonDetail />} />
-          <Route path="/register" element={<NewUser />} />
-          <Route path="/similar/:serieId" element={<SimilarSeries />} />
-          <Route path="/similarMovies/:movieId" element={<SimilarMovies />} />
-          <Route
-            path="/episode/:seriesId/:seasonNumber/:episodeNumber"
-            element={<EpisodeById />}
-          />
-          <Route path="/test/:movieId" element={<Test />} />
-        </Routes>
-      </StateProvider>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/discover_movies" element={<DiscoverMovies />} />
+        <Route path="/movie/:movieId" element={<MovieById />} />
+        <Route path="/upcoming" element={<UpcomingMovies />} />
+        <Route path="/tv" element={<LatestSeries />} />
+        <Route path="/tv/:tvShowId" element={<TvShowById />} />
+        <Route path="/search" element={<SearchResultsPage />} />
+        <Route path="/person/:personId" element={<PersonDetail />} />
+        <Route path="/register" element={<NewUser />} />
+        <Route path="/similar/:serieId" element={<SimilarSeries />} />
+        <Route path="/similarMovies/:movieId" element={<SimilarMovies />} />
+        <Route
+          path="/episode/:seriesId/:seasonNumber/:episodeNumber"
+          element={<EpisodeById />}
+        />
+        <Route path="/test/:movieId" element={<Test />} />
+      </Routes>
     </>
   );
 }

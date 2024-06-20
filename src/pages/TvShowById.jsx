@@ -211,7 +211,7 @@ export function TvShowById() {
   const logoSerie = logo?.find((logoItem) => logoItem.iso_639_1 === logoLang);
   // console.log("logoPeli ->", logoSerie);
 
-  const darkModeClass = darkMode ? "dark" : "";
+  const darkModeClass = darkMode ? "-dark" : "";
 
   return (
     <>
