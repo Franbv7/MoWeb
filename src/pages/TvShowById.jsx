@@ -209,15 +209,17 @@ export function TvShowById() {
     : { "& .MuiListItem-root": { color: "black" } };
 
   const logoSerie = logo?.find((logoItem) => logoItem.iso_639_1 === logoLang);
-  console.log("logoPeli ->", logoSerie);
+  // console.log("logoPeli ->", logoSerie);
+
+  const darkModeClass = darkMode ? "dark" : "";
 
   return (
     <>
       <Header />
-      <div className={`all-body${darkMode}`}>
+      <div className={`all-body${darkModeClass}`}>
         <section className="serie-details">
           {/* <h2>{tvShow?.name}</h2> */}
-          <div className={`image-container${darkMode}`}>
+          <div className={`image-container${darkModeClass}`}>
             <div className="movie-logo-container">
               <img
                 className="movie-logo"

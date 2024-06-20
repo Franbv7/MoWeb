@@ -280,12 +280,14 @@ export function MovieById() {
     ));
   };
 
+  const darkModeClass = darkMode ? "dark" : "";
+
   return (
     <>
       <Header />
-      <div className={`all-body${darkMode}`}>
+      <div className={`all-body${darkModeClass}`}>
         <section className={`movie-details`}>
-          <div className={`image-container${darkMode}`}>
+          <div className={`image-container${darkModeClass}`}>
             <div className="movie-logo-container">
               {logoPeli && (
                 <img

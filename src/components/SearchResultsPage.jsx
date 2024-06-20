@@ -39,21 +39,23 @@ export function SearchResultsPage() {
 
   console.log("darkMode->", darkMode);
 
+  const darkModeClass = darkMode ? "dark" : "";
+
   return (
     <>
       <Header />
-      <div className={`all-body${darkMode}`}>
-        <div className={`search-results-body${darkMode}`}>
+      <div className={`all-body${darkModeClass}`}>
+        <div className={`search-results-body${darkModeClass}`}>
           <h1>{language === "es-ES" ? "Resultados" : "Results:"}</h1>
           <p>Showing results for: {searchKey}</p>
 
           <div>
-            <ul className={`search-results-list${darkMode}`}>
+            <ul className={`search-results-list${darkModeClass}`}>
               {searchResults.map((result) =>
                 result.known_for ? (
                   <li key={result.id}>
                     <h3>{result.name}</h3>
-                    <div className={`search-results-info${darkMode}`}>
+                    <div className={`search-results-info${darkModeClass}`}>
                       <Link to={`/person/${result.id}`}>
                         <img
                           src={`${IMAGE_PATH}${result.profile_path}`}
@@ -65,7 +67,7 @@ export function SearchResultsPage() {
                 ) : (
                   <li key={result.id}>
                     <h3>{result.name ?? result.title}</h3>
-                    <div className={`search-results-info${darkMode}`}>
+                    <div className={`search-results-info${darkModeClass}`}>
                       {result.poster_path ? (
                         <Link to={`/${result.media_type}/${result.id}`}>
                           <img
@@ -81,7 +83,7 @@ export function SearchResultsPage() {
                           <p>No hay </p>
                         </>
                       )}
-                      <div className={`seacrh-results-text${darkMode}`}>
+                      <div className={`seacrh-results-text${darkModeClass}`}>
                         <p>
                           {language === "es-ES"
                             ? "Fecha de estreno:"
@@ -122,7 +124,7 @@ export function SearchResultsPage() {
       </div>
 
       <Pagination
-        className={`pagination${darkMode}`}
+        className={`pagination${darkModeClass}`}
         count={totalPages}
         onChange={(e, value) => setPage(value)}
       />

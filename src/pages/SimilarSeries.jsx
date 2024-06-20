@@ -23,10 +23,13 @@ export function SimilarSeries() {
     console.log(serieId);
     console.log(similarSerie);
   }, [serieId]);
+
+  const darkModeClass = darkMode ? "dark" : "";
+
   return (
     <>
       <Header />
-      <div className={`all-body${darkMode}`}>
+      <div className={`all-body${darkModeClass}`}>
         <div className="search-results-body">
           <h1>Similar to {originSerie?.name}</h1>
           <ul className="search-results-list">

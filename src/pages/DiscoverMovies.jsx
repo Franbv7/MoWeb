@@ -37,20 +37,18 @@ export function DiscoverMovies() {
     });
   }, [page]);
 
-  // useEffect(() => {
-  //   console.log("movies->", movies);
-  // }, [movies]);
+  const darkModeClass = darkMode ? "dark" : "";
 
   return (
     <>
       <Header />
-      <div className={`all-body${darkMode}`}>
+      <div className={`all-body${darkModeClass}`}>
         <div className="discover-movies-body">
           <h1>
             {language === "es-ES" ? "Descubre Películas" : "Discover Movies"}
           </h1>
           <div>
-            <ul className={`movies-list${darkMode}`}>
+            <ul className={`movies-list${darkModeClass}`}>
               {movies?.map((movie) => (
                 <li key={movie.id}>
                   <h3>{movie.title}</h3>
@@ -96,7 +94,7 @@ export function DiscoverMovies() {
         </div>
       </div>
       <Pagination
-        className={`pagination${darkMode}`}
+        className={`pagination${darkModeClass}`}
         count={totalPages}
         onChange={(e, value) => setPage(value)}
       />

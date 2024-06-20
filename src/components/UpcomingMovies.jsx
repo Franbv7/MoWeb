@@ -37,14 +37,16 @@ export function UpcomingMovies() {
     });
   }, [page]);
 
+  const darkModeClass = darkMode ? "dark" : "";
+
   return (
     <>
       <Header />
-      <div className={`all-body${darkMode}`}>
+      <div className={`all-body${darkModeClass}`}>
         <div className="upcoming-movies-body">
           <h1>{language === "es-ES" ? "Estrenos" : "Upcoming Movies"}</h1>
           <div>
-            <ul className={`upcoming-movies-list${darkMode}`}>
+            <ul className={`upcoming-movies-list${darkModeClass}`}>
               {movies?.map((movie) => (
                 <li key={movie.id} className="upcoming-movies-movies">
                   <h3>{movie.title}</h3>
@@ -92,7 +94,7 @@ export function UpcomingMovies() {
         </div>
       </div>
       <Pagination
-        className={`pagination${darkMode}`}
+        className={`pagination${darkModeClass}`}
         count={totalPages}
         onChange={(e, value) => setPage(value)}
       />

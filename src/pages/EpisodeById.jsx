@@ -24,14 +24,12 @@ export function EpisodeById() {
     console.log(episodeDetails);
   }, [seriesId, language]);
 
-  //   if (!episodeDetails) {
-  //     return <div>Cargando detalles de la película...</div>;
-  //   }
+  const darkModeClass = darkMode ? "dark" : "";
 
   return (
     <>
       <Header />
-      <div className={`all-body${darkMode}`}>
+      <div className={`all-body${darkModeClass}`}>
         <section className="movie-details">
           <h3>{episodeDetails?.name}</h3>
           <img src={`${IMAGE_PATH}${episodeDetails?.still_path}`} alt="" />

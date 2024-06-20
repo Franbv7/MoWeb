@@ -28,10 +28,13 @@ export function SimilarMovies() {
     console.log(similarMovies);
     console.log("Origin Movie->", originMovie);
   }, [movieId]);
+
+  const darkModeClass = darkMode ? "dark" : "";
+
   return (
     <>
       <Header />
-      <div className={`all-body${darkMode}`}>
+      <div className={`all-body${darkModeClass}`}>
         <div className="search-results-body">
           <h1>Similar to: {originMovie?.title}</h1>
           <ul className="search-results-list">
