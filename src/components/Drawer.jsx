@@ -97,7 +97,7 @@ export default function TemporaryDrawer({ items, sx }) {
       };
 
   const DrawerList = (
-    <Box sx={{ width: 250 }} role="presentation">
+    <Box sx={{ width: 250, height: "100vh" }} role="presentation">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -243,11 +243,11 @@ export default function TemporaryDrawer({ items, sx }) {
         sx={{
           ...sx,
           "& .MuiDrawer-paper": {
-            height: "50vh", // Establece la altura del paper del Drawer a 50vh
-            top: "0",
+            // height: "50vh", // Establece la altura del paper del Drawer a 50vh
+            // top: "0",
             // bottom: 0,
-            width: 250, // Ancho del Drawer
-            position: "fixed", // Asegura que el Drawer se mantenga fijo al desplazar la página
+            // width: 250, // Ancho del Drawer
+            // position: "fixed", // Asegura que el Drawer se mantenga fijo al desplazar la página
           },
         }}
       >
