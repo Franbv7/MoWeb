@@ -237,7 +237,20 @@ export default function TemporaryDrawer({ items, sx }) {
           />
         </svg> */}
       </Button>
-      <Drawer open={open} onClose={toggleDrawer(false)} sx={sx}>
+      <Drawer
+        open={open}
+        onClose={toggleDrawer(false)}
+        sx={{
+          ...sx,
+          "& .MuiDrawer-paper": {
+            height: "50vh", // Establece la altura del paper del Drawer a 50vh
+            // top: "auto",
+            // bottom: 0,
+            // width: 250, // Ancho del Drawer
+            // position: "fixed", // Asegura que el Drawer se mantenga fijo al desplazar la página
+          },
+        }}
+      >
         {DrawerList}
       </Drawer>
     </div>
