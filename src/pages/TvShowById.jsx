@@ -149,7 +149,7 @@ export function TvShowById() {
             language
           );
           setCredits(creditsData);
-          console.log("Serie details", tvShowData);
+          // console.log("Serie details", tvShowData);
 
           fetchSeriesImages(API_KEY, tvShowId).then((data) => {
             setLogo(data.logos);
@@ -183,9 +183,9 @@ export function TvShowById() {
           ...prevEpisodes,
           [seasonNumber]: seasonDetails.episodes,
         }));
-        console.log("episode", seasonEpisodes);
+        // console.log("episode", seasonEpisodes);
 
-        console.log(seasonNumber);
+        // console.log(seasonNumber);
       } catch (error) {
         console.error(
           `Error fetching episodes for season ${seasonNumber}:`,
@@ -247,7 +247,12 @@ export function TvShowById() {
           <p>Vote average: {tvShow?.vote_average}</p>
           <p>Popularity: {tvShow?.popularity}</p>
           <Button variant="outlined">
-            <Link to={`/similar/${tvShow?.id}`}>Similares</Link>
+            <Link
+              className={darkMode ? "dark" : "btn-similares"}
+              to={`/similar/${tvShow?.id}`}
+            >
+              {language === "es-ES" ? "Series Similares" : "Similar Series"}
+            </Link>
           </Button>
         </section>
         {tvShow?.seasons && (
@@ -264,11 +269,14 @@ export function TvShowById() {
         <section className="seire-details-credits"></section>
         {credits && (
           <section className="credits-section">
-            <h3>{language === "es-ES" ? "Créditos" : "Credits"}</h3>
+            <h3>{language === "es-ES" ? "Reparto" : "Credits"}</h3>
             <div className="serie-credits-container">
               <ul className="serie-credits">
                 {credits?.cast.map((person) => (
-                  <li key={person.id}>
+                  <li
+                    className={`movie-credits-li${darkModeClass}`}
+                    key={person.id}
+                  >
                     <Link to={`/person/${person.id}`}>
                       <img
                         src={`${CREDIT_IMAGE_PATH}${person.profile_path}`}

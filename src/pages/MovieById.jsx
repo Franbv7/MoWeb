@@ -319,7 +319,12 @@ export function MovieById() {
           <p>Promedio de votos: {movieDetails.vote_average}</p>
           <p>Popularidad: {movieDetails.popularity}</p>
           <Button variant="outlined" size="small">
-            <Link to={`/similarMovies/${movieDetails?.id}`}>Similares</Link>
+            <Link
+              className={darkMode ? "dark" : "btn-similares"}
+              to={`/similarMovies/${movieDetails?.id}`}
+            >
+              {language === "es-ES" ? "Peliculas Similares" : "Similar Movies"}
+            </Link>
           </Button>
         </section>
 
@@ -348,6 +353,7 @@ export function MovieById() {
               <p>No hay proveedores disponibles</p>
             )}
           </ul>
+          <p>Source: </p> <a href="https://www.justwatch.com">JustWatch</a>
         </div>
 
         <div className="movie-trailer">
@@ -377,11 +383,14 @@ export function MovieById() {
         <section className="movie-details-credits">
           {movieCredits && (
             <section className="credits-section">
-              <h3>Créditos:</h3>
+              <h3>Reparto:</h3>
               <div className="movie-credits-container">
                 <ul className="movie-credits">
                   {movieCredits?.cast?.map((person) => (
-                    <li key={person.id}>
+                    <li
+                      className={`movie-credits-li${darkModeClass}`}
+                      key={person.id}
+                    >
                       <Link to={`/person/${person.id}`}>
                         <img
                           src={`${CREDIT_IMAGE_PATH}${person.profile_path}`}

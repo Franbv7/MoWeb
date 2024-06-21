@@ -19,7 +19,7 @@ export function Slider({ items, linkBase, imageSource, imageAlt, itemName }) {
               alt={imageAlt(item)}
             />
           </Link>
-          <h3>{itemName(item)}</h3>
+          <h4>{itemName(item)}</h4>
         </li>
       ))}
     </ul>

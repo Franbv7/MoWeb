@@ -97,7 +97,7 @@ export default function TemporaryDrawer({ items, sx }) {
       };
 
   const DrawerList = (
-    <Box sx={{ width: 250, height: "100vh" }} role="presentation">
+    <Box sx={{ width: 250, height: "100vh", ...selectSx }} role="presentation">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -205,8 +205,6 @@ export default function TemporaryDrawer({ items, sx }) {
   return (
     <div>
       <Button onClick={toggleDrawer(true)} sx={{ padding: 0 }}>
-        {/* {language === "en-US" ? "More options" : "Más opciones"} */}
-        {/* <img height={"30rem"} src="/burger_line.png" alt="" /> */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="2em"
@@ -222,20 +220,6 @@ export default function TemporaryDrawer({ items, sx }) {
             d="M3 6.001h18m-18 6h18m-18 6h18"
           />
         </svg>
-        {/* <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 30 30"
-          strokeWidth="1.5"
-          stroke={`${color}`}
-          class="size-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-          />
-        </svg> */}
       </Button>
       <Drawer
         open={open}

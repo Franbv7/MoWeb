@@ -48,6 +48,10 @@
   width: 70vw;
 }
 
+.all-trending h3 {
+  text-decoration: underline;
+}
+
 .sliders {
   list-style: none;
   display: flex;

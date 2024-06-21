@@ -50,4 +50,12 @@ form button:hover {
     display: flex;
     width: 50vw;
   }
+
+  nav {
+    padding: 0;
+  }
+
+  nav a:hover {
+    transform: scale(1);
+  }
 }
