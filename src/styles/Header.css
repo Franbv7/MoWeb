@@ -35,6 +35,11 @@ form button:hover {
   transform: scale(1.2);
 }
 
+.drawer-cross {
+  width: 2.5rem;
+  margin: 1rem 0 0 1rem;
+}
+
 @media (max-width: 450px) {
   input {
     width: 10rem;

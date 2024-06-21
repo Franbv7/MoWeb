@@ -11,10 +11,11 @@ import { Link } from "react-router-dom";
 import { useStateContext } from "../context/stateContext";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import ReactCountryFlag from "react-country-flag";
+import { useState } from "react";
 
 export default function TemporaryDrawer({ items, sx }) {
   // const { language } = useStateContext;
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const {
     country,
     setCountry,
@@ -96,11 +97,23 @@ export default function TemporaryDrawer({ items, sx }) {
       };
 
   const DrawerList = (
-    <Box
-      sx={{ width: 250, height: "50vh" }}
-      role="presentation"
-      onClick={toggleDrawer(false)}
-    >
+    <Box sx={{ width: 250 }} role="presentation">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth="1.5"
+        stroke="currentColor"
+        className="size-6 drawer-cross"
+        onClick={toggleDrawer(false)}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M6 18 18 6M6 6l12 12"
+        />
+      </svg>
+
       <List>
         {/* <ListItem disablePadding>
           <ListItemButton>
@@ -161,7 +174,6 @@ export default function TemporaryDrawer({ items, sx }) {
           </Select>
         </FormControl>
       </Box>
-
       <Box sx={{ minWidth: 80 }}>
         <FormControl fullWidth>
           <InputLabel

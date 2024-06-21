@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "../styles/Header.css";
 import "../styles/App.css";
+
 import { useEffect, useState } from "react";
 import {
   Box,
@@ -10,6 +11,7 @@ import {
   InputLabel,
   MenuItem,
   Select,
+  useTheme,
 } from "@mui/material";
 
 import { useStateContext } from "../context/stateContext";
@@ -20,7 +22,7 @@ import ReactCountryFlag from "react-country-flag";
 
 export function Header() {
   const [searchKey, setSearchKey] = useState("");
-
+  const theme = useTheme();
   const {
     country,
     setCountry,
@@ -95,21 +97,13 @@ export function Header() {
         "& .MuiDrawer-paper": {
           color: "aliceblue",
           backgroundColor: "black",
-          height: "50vh",
         },
         "MuiPaper-root": {
           color: "aliceblue",
           backgroundColor: "black",
         },
       }
-    : {
-        // "& .MuiDrawer-paper": {
-        //   height: "50vh",
-        // },
-        // "& .MuiListItem-root": {
-        //   height: "10vw",
-        // },
-      };
+    : {};
 
   const selectSx = darkMode
     ? {
@@ -150,8 +144,7 @@ export function Header() {
   return (
     <div className={`all-body${darkModeClass}`}>
       <nav className={`all-body${darkModeClass}`}>
-        <DarkModeSwitch checked={checked} onChange={handleChangeDarkMode} />
-
+        <TemporaryDrawer items={items} sx={drawerSx} />
         {/* <Link to={"/"}>{language === "es-ES" ? "Inicio" : "Home"}</Link>
         <Link to={"/latest_movies"}>
         {language === "es-ES" ? "Descubre Películas" : "Discover Movies"}
@@ -184,7 +177,15 @@ export function Header() {
             onChange={(e) => setSearchKey(e.target.value)}
             style={{ borderBottom: `1px solid ${color}` }}
           />
-          <Button onClick={searchMulti}>
+          <Button
+            sx={{
+              [theme.breakpoints.down("450")]: {
+                display: "none",
+              },
+            }}
+            className="nav-search-button"
+            onClick={searchMulti}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="2em"
@@ -204,7 +205,8 @@ export function Header() {
             </svg>
           </Button>
         </form>
-        <TemporaryDrawer items={items} sx={drawerSx} />
+
+        <DarkModeSwitch checked={checked} onChange={handleChangeDarkMode} />
       </nav>
     </div>
   );
