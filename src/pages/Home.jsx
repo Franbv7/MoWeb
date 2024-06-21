@@ -11,6 +11,7 @@ import { useStateContext } from "../context/stateContext";
 import { Slider } from "../components/Slider";
 
 import CarouselSlider from "../components/Carousel";
+import ScrollToTop from "react-scroll-to-top";
 
 export function HomePage() {
   const { IMAGE_PATH, API_KEY, language, country, darkMode, setLanguage } =
@@ -103,6 +104,7 @@ export function HomePage() {
           />
         </div>
       </div>
+      <ScrollToTop smooth />
     </div>
   );
 }

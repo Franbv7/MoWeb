@@ -8,6 +8,7 @@ import {
 } from "../services";
 import { Link, useParams } from "react-router-dom";
 import { useStateContext } from "../context/stateContext";
+import ScrollToTop from "react-scroll-to-top";
 
 export function SimilarMovies() {
   const { IMAGE_PATH, CREDIT_IMAGE_PATH, API_KEY, language, darkMode } =
@@ -36,12 +37,14 @@ export function SimilarMovies() {
 
   const darkModeClass = darkMode ? "dark" : "";
 
+  // console.log("similarMovies->", similarMovies);
+
   return (
     <>
       <Header />
       <div className={`all-body ${darkModeClass}`}>
         <div className={`search-results-body ${darkModeClass}`}>
-          <h1>Similar to: {originMovie?.title}</h1>
+          {/* <h1>Similar to: {originMovie?.title}</h1> */}
           <div>
             <ul className={`search-results-list ${darkModeClass}`}>
               {similarMovies?.map((results) => (
@@ -51,7 +54,7 @@ export function SimilarMovies() {
                 >
                   <h3>{results.name}</h3>
                   <div className={`search-results-info ${darkModeClass}`}>
-                    <Link to={`/tv/${results.id}`}>
+                    <Link to={`/movie/${results.id}`}>
                       <img src={`${IMAGE_PATH}${results.poster_path}`} />
                     </Link>
                     {/* <p>{results.overview}</p> */}
@@ -61,23 +64,35 @@ export function SimilarMovies() {
                     <div className="movie-text">
                       {/* <p>{movie.overview}</p> */}
                       <p>
-                        {language === "es-ES"
-                          ? "Fecha de estreno:"
-                          : "Release date:"}{" "}
+                        {language === "es-ES" ? (
+                          <u>Fecha de estreno:</u>
+                        ) : (
+                          <u>Release date:</u>
+                        )}{" "}
                         {results.release_date}
                       </p>
                       <p>
-                        {language === "es-ES"
-                          ? "Media de votos:"
-                          : "Vote average:"}{" "}
+                        {language === "es-ES" ? (
+                          <u>Media de votos:</u>
+                        ) : (
+                          <u>Vote average:</u>
+                        )}{" "}
                         {results.vote_average}
                       </p>
                       <p>
-                        {language === "es-ES" ? "Popularidad:" : "Popularity:"}{" "}
+                        {language === "es-ES" ? (
+                          <u>Popularidad:</u>
+                        ) : (
+                          <u>Popularity:</u>
+                        )}{" "}
                         {results.popularity}
                       </p>
                       <p>
-                        {language === "es-ES" ? "Géneros:" : "Genres:"}{" "}
+                        {language === "es-ES" ? (
+                          <u>Géneros:</u>
+                        ) : (
+                          <u>Genres:</u>
+                        )}{" "}
                         {results.genre_ids
                           .map((genreId) => {
                             const genre = genres.find(
@@ -94,6 +109,7 @@ export function SimilarMovies() {
             </ul>
           </div>
         </div>
+        <ScrollToTop smooth />
       </div>
     </>
   );

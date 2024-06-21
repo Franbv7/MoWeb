@@ -7,6 +7,7 @@ import {
 } from "../services";
 import { Link, useParams } from "react-router-dom";
 import { useStateContext } from "../context/stateContext";
+import ScrollToTop from "react-scroll-to-top";
 
 export function SimilarSeries() {
   const { IMAGE_PATH, CREDIT_IMAGE_PATH, API_KEY, language, darkMode } =
@@ -32,6 +33,8 @@ export function SimilarSeries() {
   //   console.log(similarSerie);
   // }, [serieId]);
 
+  console.log("similarSerie:", similarSerie);
+
   const darkModeClass = darkMode ? "dark" : "";
 
   return (
@@ -39,7 +42,7 @@ export function SimilarSeries() {
       <Header />
       <div className={`all-body ${darkModeClass}`}>
         <div className={`search-results-body ${darkModeClass}`}>
-          <h1>Similar to {originSerie?.name}</h1>
+          {/* <h1>Similar to {originSerie?.name}</h1> */}
           <ul className={`search-results-list ${darkModeClass}`}>
             {similarSerie?.map((results) => (
               <li
@@ -90,6 +93,7 @@ export function SimilarSeries() {
             ))}
           </ul>
         </div>
+        <ScrollToTop smooth />
       </div>
     </>
   );

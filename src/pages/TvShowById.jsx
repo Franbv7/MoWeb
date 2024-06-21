@@ -118,6 +118,7 @@ import "../styles/TvShowById.css";
 import "../styles/MovieById.css";
 import { NestDrawer } from "../components/NestDrawer";
 import { Button } from "@mui/material";
+import ScrollToTop from "react-scroll-to-top";
 
 export function TvShowById() {
   const {
@@ -291,6 +292,10 @@ export function TvShowById() {
             </div>
           </section>
         )}
+        <ScrollToTop
+          style={{ backgroundColor: darkModeClass ? "aliceblue" : "" }}
+          smooth
+        />
       </div>
     </>
   );

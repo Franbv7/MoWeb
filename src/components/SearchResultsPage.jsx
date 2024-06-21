@@ -46,8 +46,7 @@ export function SearchResultsPage() {
       <Header />
       <div className={`all-body ${darkModeClass}`}>
         <div className={`search-results-body ${darkModeClass}`}>
-          <h1>{language === "es-ES" ? "Resultados" : "Results:"}</h1>
-          <p>Showing results for: {searchKey}</p>
+          {/* <h1>{language === "es-ES" ? "Resultados" : "Results:"}</h1> */}
 
           <div>
             <ul className={`search-results-list ${darkModeClass}`}>

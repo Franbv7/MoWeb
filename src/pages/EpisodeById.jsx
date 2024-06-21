@@ -5,6 +5,7 @@ import { Header } from "../components/Header";
 import { useStateContext } from "../context/stateContext";
 
 import "../styles/MovieById.css";
+import ScrollToTop from "react-scroll-to-top";
 
 export function EpisodeById() {
   const { API_KEY, language, IMAGE_PATH, darkMode } = useStateContext();
@@ -35,6 +36,7 @@ export function EpisodeById() {
           <img src={`${IMAGE_PATH}${episodeDetails?.still_path}`} alt="" />
           <p>{episodeDetails?.overview}</p>
         </section>
+        <ScrollToTop smooth />
       </div>
     </>
   );

@@ -8,6 +8,7 @@ import "../styles/App.css";
 
 import { useStateContext } from "../context/stateContext";
 import { Pagination } from "@mui/material";
+import ScrollToTop from "react-scroll-to-top";
 
 export function DiscoverMovies() {
   const { API_KEY, IMAGE_PATH, language, darkMode, country } =
@@ -59,23 +60,35 @@ export function DiscoverMovies() {
                     <div className="movie-text">
                       {/* <p>{movie.overview}</p> */}
                       <p>
-                        {language === "es-ES"
-                          ? "Fecha de estreno:"
-                          : "Release date:"}{" "}
+                        {language === "es-ES" ? (
+                          <u>Fecha de estreno:</u>
+                        ) : (
+                          <u>Release date:</u>
+                        )}{" "}
                         {movie.release_date}
                       </p>
                       <p>
-                        {language === "es-ES"
-                          ? "Media de votos:"
-                          : "Vote average:"}{" "}
+                        {language === "es-ES" ? (
+                          <u>Media de votos:</u>
+                        ) : (
+                          <u>Vote average:</u>
+                        )}{" "}
                         {movie.vote_average}
                       </p>
                       <p>
-                        {language === "es-ES" ? "Popularidad:" : "Popularity:"}{" "}
+                        {language === "es-ES" ? (
+                          <u>Popularidad:</u>
+                        ) : (
+                          <u>Popularity:</u>
+                        )}{" "}
                         {movie.popularity}
                       </p>
                       <p>
-                        {language === "es-ES" ? "Géneros:" : "Genres:"}{" "}
+                        {language === "es-ES" ? (
+                          <u>Géneros:</u>
+                        ) : (
+                          <u>Genres:</u>
+                        )}{" "}
                         {movie.genre_ids
                           .map((genreId) => {
                             const genre = genres.find(
@@ -92,6 +105,7 @@ export function DiscoverMovies() {
             </ul>
           </div>
         </div>
+        <ScrollToTop smooth />
       </div>
       <Pagination
         className={`pagination${darkModeClass}`}

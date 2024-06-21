@@ -206,6 +206,7 @@ import { useStateContext } from "../context/stateContext";
 
 import "../styles/MovieById.css";
 import { Button } from "@mui/material";
+import ScrollToTop from "react-scroll-to-top";
 
 export function MovieById() {
   const {
@@ -312,12 +313,29 @@ export function MovieById() {
             .join(", ")} */}
           <p>{movieDetails.overview}</p>
           <p>
-            {language === "es-ES" ? "Géneros:" : "Genres:"}{" "}
+            {language === "es-ES" ? <u>Generos:</u> : <u>Genres:</u>}{" "}
             {movieDetails?.genres.map((genre) => genre.name).join(", ")}
           </p>
-          <p>Fecha de lanzamiento: {movieDetails.release_date}</p>
-          <p>Promedio de votos: {movieDetails.vote_average}</p>
-          <p>Popularidad: {movieDetails.popularity}</p>
+          <p>
+            {language === "es-ES" ? (
+              <u>Fecha de lanzamiento:</u>
+            ) : (
+              <u>Release date:</u>
+            )}{" "}
+            {movieDetails.release_date}
+          </p>
+          <p>
+            {language === "es-ES" ? (
+              <u>Promedio de votos:</u>
+            ) : (
+              <u>Vote average:</u>
+            )}{" "}
+            {movieDetails.vote_average}
+          </p>
+          <p>
+            {language === "es-ES" ? <u>Popularidad:</u> : <u>Popularity:</u>}{" "}
+            {movieDetails.popularity}
+          </p>
           <Button variant="outlined" size="small">
             <Link
               className={darkMode ? "dark" : "btn-similares"}
@@ -406,6 +424,7 @@ export function MovieById() {
             </section>
           )}
         </section>
+        <ScrollToTop smooth />
       </div>
     </>
   );
