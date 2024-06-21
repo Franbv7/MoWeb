@@ -237,16 +237,7 @@ export default function TemporaryDrawer({ items, sx }) {
           />
         </svg> */}
       </Button>
-      <Drawer
-        open={open}
-        onClose={toggleDrawer(false)}
-        sx={{
-          width: "80vw", // Ancho del Drawer limitado al 80% del viewport width
-          maxWidth: 300, // Máximo ancho del Drawer en píxeles
-          height: "100vh", // Altura del Drawer al 100% de la altura de la vista
-          ...sx, // Propiedades adicionales de estilo pasadas como props
-        }}
-      >
+      <Drawer open={open} onClose={toggleDrawer(false)} sx={sx}>
         {DrawerList}
       </Drawer>
     </div>

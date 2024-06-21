@@ -224,6 +224,10 @@ a {
   background-color: #ffffff61;
 }
 
+.css-4t3x6l-MuiPaper-root-MuiDrawer-paper {
+  justify-content: flex-start;
+}
+
 @media (max-width: 450px) {
   .all-body {
     width: auto;
