@@ -135,7 +135,7 @@ export default function TemporaryDrawer({ items, sx }) {
                 to={direction}
                 style={{
                   width: "-webkit-fill-available",
-                  height: "-webkit-fill-available",
+                  // height: "-webkit-fill-available",
                   textDecoration: "none",
                   color: "inherit",
                 }}
@@ -244,10 +244,10 @@ export default function TemporaryDrawer({ items, sx }) {
           ...sx,
           "& .MuiDrawer-paper": {
             height: "50vh", // Establece la altura del paper del Drawer a 50vh
-            // top: "auto",
+            top: "0",
             // bottom: 0,
-            // width: 250, // Ancho del Drawer
-            // position: "fixed", // Asegura que el Drawer se mantenga fijo al desplazar la página
+            width: 250, // Ancho del Drawer
+            position: "fixed", // Asegura que el Drawer se mantenga fijo al desplazar la página
           },
         }}
       >
