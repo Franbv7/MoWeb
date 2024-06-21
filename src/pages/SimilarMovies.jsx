@@ -28,11 +28,11 @@ export function SimilarMovies() {
     }
   }, [movieId]);
 
-  useEffect(() => {
-    console.log(movieId);
-    console.log(similarMovies);
-    console.log("Origin Movie->", originMovie);
-  }, [movieId]);
+  // useEffect(() => {
+  //   console.log(movieId);
+  //   console.log(similarMovies);
+  //   console.log("Origin Movie->", originMovie);
+  // }, [movieId]);
 
   const darkModeClass = darkMode ? "dark" : "";
 

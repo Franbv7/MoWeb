@@ -54,7 +54,7 @@ export function LatestSeries() {
   return (
     <>
       <Header />
-      <div className={`all-body ${darkModeClass}`}>
+      <div className={`all-body${darkModeClass}`}>
         <div className={`discover-series-body ${darkModeClass}`}>
           <h1>
             {language === "es-ES" ? "Descubre Series" : "Discover Series"}
@@ -119,7 +119,7 @@ export function LatestSeries() {
         </div>
       </div>
       <Pagination
-        className={`pagination${darkMode}`}
+        className={`pagination${darkModeClass}`}
         count={totalPages}
         onChange={(e, value) => setPage(value)}
       />

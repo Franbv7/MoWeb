@@ -36,8 +36,8 @@ export default function TemporaryDrawer({ items, sx }) {
   };
 
   const handleChangeDarkMode = () => {
-    setDarkMode((prevDarkMode) => (prevDarkMode === "-dark" ? "" : "-dark"));
-    setChecked(darkMode !== "-dark");
+    setDarkMode((prevDarkMode) => (prevDarkMode === "dark" ? "" : "dark"));
+    setChecked(darkMode !== "dark");
   };
 
   const toggleDrawer = (newOpen) => () => {

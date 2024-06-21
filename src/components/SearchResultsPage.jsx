@@ -37,7 +37,7 @@ export function SearchResultsPage() {
     return b.popularity - a.popularity;
   });
 
-  console.log("darkMode->", darkMode);
+  // console.log("darkMode->", darkMode);
 
   const darkModeClass = darkMode ? "dark" : "";
 

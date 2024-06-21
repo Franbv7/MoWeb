@@ -28,12 +28,12 @@ export function PersonDetail() {
 
       fetchPersonMovieCredits(personId, API_KEY, language).then((data) => {
         setMovieCredits(data.cast);
-        console.log("movieCredits->", movieCredits);
+        // console.log("movieCredits->", movieCredits);
       });
 
       fetchPersonTvCredits(personId, API_KEY, language).then((data) => {
         setTvCredits(data.cast);
-        console.log("TvCredits->", tvCredits);
+        // console.log("TvCredits->", tvCredits);
       });
     }
   }, [personId, language]);

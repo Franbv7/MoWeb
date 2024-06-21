@@ -42,7 +42,7 @@ export function DiscoverMovies() {
   return (
     <>
       <Header />
-      <div className={`all-body ${darkModeClass}`}>
+      <div className={`all-body${darkModeClass}`}>
         <div className={`discover-movies-body ${darkModeClass}`}>
           <h1>
             {language === "es-ES" ? "Descubre Películas" : "Discover Movies"}

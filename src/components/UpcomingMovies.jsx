@@ -42,15 +42,15 @@ export function UpcomingMovies() {
   return (
     <>
       <Header />
-      <div className={`all-body ${darkModeClass}`}>
+      <div className={`all-body${darkModeClass}`}>
         <div className={`upcoming-movies-body ${darkModeClass}`}>
           <h1>{language === "es-ES" ? "Estrenos" : "Upcoming Movies"}</h1>
           <div>
-            <ul className={`upcoming-movies-list${darkModeClass}`}>
+            <ul className={`upcoming-movies-list ${darkModeClass}`}>
               {movies?.map((movie) => (
                 <li
                   key={movie.id}
-                  className={`upcoming-movies-list-li${darkModeClass}`}
+                  className={`upcoming-movies-list-li ${darkModeClass}`}
                 >
                   <h3>{movie.title}</h3>
                   <div className="movie-info">
@@ -97,7 +97,7 @@ export function UpcomingMovies() {
         </div>
       </div>
       <Pagination
-        className={`pagination ${darkModeClass}`}
+        className={`pagination${darkModeClass}`}
         count={totalPages}
         onChange={(e, value) => setPage(value)}
       />

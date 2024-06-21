@@ -171,9 +171,23 @@ export const StateProvider = ({ children }) => {
   language === "en-US" ? (providerLang = "US") : (providerLang = "ES");
 
   useEffect(() => {
+    // const savedDarkMode = localStorage.getItem("darkMode");
+    // if (savedDarkMode !== null) {
+    //   setDarkMode(JSON.parse(savedDarkMode));
+    // }
+
     const savedDarkMode = localStorage.getItem("darkMode");
     if (savedDarkMode !== null) {
-      setDarkMode(JSON.parse(savedDarkMode));
+      try {
+        if (savedDarkMode === "-dark") {
+          localStorage.removeItem("darkMode");
+        } else {
+          setDarkMode(JSON.parse(savedDarkMode));
+        }
+      } catch (e) {
+        console.error("Error parsing darkMode from localStorage", e);
+        localStorage.removeItem("darkMode");
+      }
     }
 
     const savedCountry = localStorage.getItem("country");

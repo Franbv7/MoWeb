@@ -29,7 +29,7 @@ export function TvShowDetails() {
             API_KEY,
             language
           );
-          console.log("Credits->", credits);
+          // console.log("Credits->", credits);
           setTvShowCredits(credits);
         }
       } catch (error) {
