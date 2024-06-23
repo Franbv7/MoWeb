@@ -224,11 +224,11 @@ a {
   background-color: #ffffff61;
 }
 
-@media (max-width: 450px) {
+/* @media (max-width: 450px) {
   .all-body {
     width: auto;
   }
-}
+} */
 
 .css-1dehfy1 {
   margin: 10px;

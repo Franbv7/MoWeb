@@ -26,6 +26,10 @@
   font-size: 5rem;
 } */
 
+.title {
+  margin-top: 3rem;
+}
+
 .carousel {
   width: 45vw;
 }

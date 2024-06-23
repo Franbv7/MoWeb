@@ -351,7 +351,7 @@ export function Header() {
   const darkModeClass = darkMode ? "dark" : "";
 
   return (
-    <div className={`all-body${darkModeClass}`}>
+    <div className={`all-body${darkModeClass} nav-div`}>
       <nav className={`all-body${darkModeClass}`}>
         <TemporaryDrawer items={items} sx={drawerSx} />
         <Link to={"/"}>

@@ -171,6 +171,9 @@
 }
 
 @media (max-width: 450px) {
+  .movie-details p {
+    width: 90vw;
+  }
   .movie-details-credits {
     width: 90vw;
   }

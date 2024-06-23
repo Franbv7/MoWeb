@@ -191,7 +191,7 @@ export const fetchTvShowById = async (id, apiKey, language) => {
     const response = await fetch(url, options);
     const data = await response.json();
 
-    // console.log("Tv Show by Id ->", data);
+    console.log("Tv Show by Id ->", data);
 
     return data;
   } catch (error) {
@@ -212,7 +212,7 @@ export const fetchTvImages = async (id, apiKey) => {
   try {
     const response = await fetch(url, options);
     const data = await response.json();
-    console.log("Tv Show Images ->", data);
+    // console.log("Tv Show Images ->", data);
 
     return data;
   } catch (error) {

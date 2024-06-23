@@ -311,31 +311,33 @@ export function MovieById() {
               return genre ? genre.name : "Desconocido";
             })
             .join(", ")} */}
-          <p>{movieDetails.overview}</p>
-          <p>
-            {language === "es-ES" ? <u>Generos:</u> : <u>Genres:</u>}{" "}
-            {movieDetails?.genres.map((genre) => genre.name).join(", ")}
-          </p>
-          <p>
-            {language === "es-ES" ? (
-              <u>Fecha de lanzamiento:</u>
-            ) : (
-              <u>Release date:</u>
-            )}{" "}
-            {movieDetails.release_date}
-          </p>
-          <p>
-            {language === "es-ES" ? (
-              <u>Promedio de votos:</u>
-            ) : (
-              <u>Vote average:</u>
-            )}{" "}
-            {movieDetails.vote_average}
-          </p>
-          <p>
-            {language === "es-ES" ? <u>Popularidad:</u> : <u>Popularity:</u>}{" "}
-            {movieDetails.popularity}
-          </p>
+          <div className="details-text">
+            <p>{movieDetails.overview}</p>
+            <p>
+              {language === "es-ES" ? <u>Generos:</u> : <u>Genres:</u>}{" "}
+              {movieDetails?.genres.map((genre) => genre.name).join(", ")}
+            </p>
+            <p>
+              {language === "es-ES" ? (
+                <u>Fecha de lanzamiento:</u>
+              ) : (
+                <u>Release date:</u>
+              )}{" "}
+              {movieDetails.release_date}
+            </p>
+            <p>
+              {language === "es-ES" ? (
+                <u>Promedio de votos:</u>
+              ) : (
+                <u>Vote average:</u>
+              )}{" "}
+              {movieDetails.vote_average}
+            </p>
+            <p>
+              {language === "es-ES" ? <u>Popularidad:</u> : <u>Popularity:</u>}{" "}
+              {movieDetails.popularity}
+            </p>
+          </div>
           <Button variant="outlined" size="small">
             <Link
               className={darkMode ? "dark" : "btn-similares"}

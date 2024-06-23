@@ -194,11 +194,15 @@
 }
 
 @media (max-width: 450px) {
+  .serie-details {
+    margin-top: 3rem;
+  }
+
   .serie-details-credits {
     width: 90vw;
   }
 
-  .movei-credits-container {
+  .movie-credits-container {
     width: 82vw;
   }
 
@@ -209,6 +213,19 @@
   .serie-credits img {
     width: 30vw;
   }
+
+  .movie-logo {
+    top: 0;
+    left: 0;
+  }
+
+  .serie-details p {
+    width: 90vw;
+  }
+
+  /* .details-text {
+    width: 40vw;
+  } */
 
   iframe {
     width: 90vw;
