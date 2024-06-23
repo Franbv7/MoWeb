@@ -85,7 +85,7 @@
 
 .credits-section {
   padding: 1rem;
-  overflow-x: auto;
+  /* overflow-x: auto; */
 }
 
 .serie-credits-container {

@@ -383,7 +383,7 @@ export const fetchPersonTvCredits = async (personId, apiKey, language) => {
     const response = await fetch(url, options);
     const data = await response.json();
 
-    console.log("person tv credits->");
+    console.log("person tv credits->", data);
     return data;
   } catch (error) {
     console.error("Error fetching person details:", error);

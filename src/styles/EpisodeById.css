@@ -1,0 +1,14 @@
+.episode-body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.episode-title {
+  margin-top: 4rem;
+}
+
+.episode-image {
+  width: 90vw;
+}

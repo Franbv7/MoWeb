@@ -2,8 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
+  gap: 1rem;
+
   /* width: 70vw; */
+}
+
+.person-name {
+  margin-top: 3rem;
 }
 
 .person-details-body p {
@@ -15,5 +20,10 @@
 }
 
 .person-photo {
-  width: 25vw;
+  width: 45vw;
+}
+
+.dark {
+  background-color: #000;
+  color: aliceblue;
 }
