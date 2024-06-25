@@ -1,3 +1,131 @@
+// services/index.js
+
+export const createRequestToken = async (bearerToken) => {
+  try {
+    const response = await fetch(
+      "https://api.themoviedb.org/3/authentication/token/new",
+      {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          Authorization: `Bearer ${bearerToken}`,
+        },
+      }
+    );
+    const data = await response.json();
+    if (data.success) {
+      return data.request_token;
+    } else {
+      throw new Error(data.status_message);
+    }
+  } catch (error) {
+    console.error("Error creating request token:", error);
+    return null;
+  }
+};
+
+// services/index.js
+
+export const createSession = async (requestToken, bearerToken) => {
+  try {
+    const response = await fetch(
+      "https://api.themoviedb.org/3/authentication/session/new",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${bearerToken}`,
+        },
+        body: JSON.stringify({
+          request_token: requestToken,
+        }),
+      }
+    );
+    const data = await response.json();
+    if (data.success) {
+      return data.session_id;
+    } else {
+      throw new Error(data.status_message);
+    }
+  } catch (error) {
+    console.error("Error creating session:", error);
+    return null;
+  }
+};
+
+export const registerUser = async (username, password, bearerToken) => {
+  try {
+    // Obtener un nuevo token de autenticación
+    const tokenResponse = await fetch(
+      "https://api.themoviedb.org/3/authentication/token/new",
+      {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          Authorization: `Bearer ${bearerToken}`,
+        },
+      }
+    );
+    const tokenData = await tokenResponse.json();
+
+    if (!tokenData.success) {
+      throw new Error(tokenData.status_message);
+    }
+
+    // Validar el token con las credenciales del usuario
+    const loginResponse = await fetch(
+      "https://api.themoviedb.org/3/authentication/token/validate_with_login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${bearerToken}`,
+        },
+        body: JSON.stringify({
+          username: username,
+          password: password,
+          request_token: tokenData.request_token,
+        }),
+      }
+    );
+    const loginData = await loginResponse.json();
+
+    if (!loginData.success) {
+      throw new Error(loginData.status_message);
+    }
+
+    // Crear una nueva sesión usando el token validado
+    const sessionResponse = await fetch(
+      "https://api.themoviedb.org/3/authentication/session/new",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${bearerToken}`,
+        },
+        body: JSON.stringify({
+          request_token: loginData.request_token,
+        }),
+      }
+    );
+    const sessionData = await sessionResponse.json();
+
+    if (sessionData.success) {
+      console.log("Registro exitoso!", sessionData.session_id);
+      return sessionData.session_id;
+    } else {
+      console.error(
+        "Error en la creación de sesión:",
+        sessionData.status_message
+      );
+      return null;
+    }
+  } catch (error) {
+    console.error("Error:", error.message);
+    return null;
+  }
+};
+
 export const fetchLatestMovies = async (apiKey, language, country, page) => {
   const url = "https://api.themoviedb.org/3/movie/latest";
   const options = {

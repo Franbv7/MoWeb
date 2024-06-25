@@ -6,7 +6,7 @@ import { UpcomingMovies } from "./components/UpcomingMovies";
 import { SearchResultsPage } from "./components/SearchResultsPage";
 
 import { PersonDetail } from "./components/PersonDetail";
-import { NewUser } from "./components/NewUser";
+import { NewUser } from "./pages/NewUser";
 
 // import { StateProvider } from "./context/stateContext";
 import { TvShowById } from "./pages/TvShowById";
@@ -16,6 +16,8 @@ import { SimilarSeries } from "./pages/SimilarSeries";
 import { SimilarMovies } from "./pages/SimilarMovies";
 import { EpisodeById } from "./pages/EpisodeById";
 import Test from "./pages/Test";
+import UserPage from "./pages/UserPage";
+import Approved from "./pages/Approved";
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
         <Route path="/register" element={<NewUser />} />
         <Route path="/similar/:serieId" element={<SimilarSeries />} />
         <Route path="/similarMovies/:movieId" element={<SimilarMovies />} />
+        <Route path="/user" element={<UserPage />} />
+        <Route path="/approved" element={<Approved />} />
         <Route
           path="/episode/:seriesId/:seasonNumber/:episodeNumber"
           element={<EpisodeById />}

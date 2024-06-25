@@ -45,6 +45,7 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  font-family: "Roboto";
 }
 
 .serie-details-credits {
@@ -194,9 +195,9 @@
 }
 
 @media (max-width: 450px) {
-  .serie-details {
+  /* .serie-details {
     margin-top: 3rem;
-  }
+  } */
 
   .serie-details-credits {
     width: 90vw;

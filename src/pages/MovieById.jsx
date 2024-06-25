@@ -288,7 +288,7 @@ export function MovieById() {
       <Header />
       <div className={`movie-details-body ${darkModeClass}`}>
         <section className={`movie-details`}>
-          <div className={`image-container${darkModeClass}`}>
+          <div className={`image-container ${darkModeClass}`}>
             <div className="movie-logo-container">
               {logoPeli && (
                 <img

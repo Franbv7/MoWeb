@@ -12,6 +12,7 @@ import { useStateContext } from "../context/stateContext";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import ReactCountryFlag from "react-country-flag";
 import { useState } from "react";
+import { DarkModeSwitch } from "./DarkModeSwitch";
 
 export default function TemporaryDrawer({ items, sx }) {
   // const { language } = useStateContext;
@@ -115,6 +116,7 @@ export default function TemporaryDrawer({ items, sx }) {
       </svg>
 
       <List>
+        <DarkModeSwitch checked={checked} onChange={handleChangeDarkMode} />
         {/* <ListItem disablePadding>
           <ListItemButton>
             <Link

@@ -4,7 +4,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Headland One";
+  /* font-family: "Headland One"; */
+  font-family: "Roboto";
 }
 
 .home-body h1 {
