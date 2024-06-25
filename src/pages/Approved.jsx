@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useStateContext } from "../context/stateContext";
 import { createSession } from "../services/index";
+import { Header } from "../components/Header";
 
 const Approved = () => {
   const { API_KEY, setUser } = useStateContext();
@@ -25,7 +26,15 @@ const Approved = () => {
     createSessionId();
   }, [API_KEY, setUser]);
 
-  return <div>Autenticación aprobada. Creando sesión...</div>;
+  return (
+    <>
+      <Header />
+      <div style={{ paddingTop: "3rem" }}>
+        {" "}
+        Autenticación aprobada. Creando sesión...
+      </div>
+    </>
+  );
 };
 
 export default Approved;

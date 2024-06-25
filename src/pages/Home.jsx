@@ -14,8 +14,15 @@ import CarouselSlider from "../components/Carousel";
 import ScrollToTop from "react-scroll-to-top";
 
 export function HomePage() {
-  const { IMAGE_PATH, API_KEY, language, country, darkMode, setLanguage } =
-    useStateContext();
+  const {
+    IMAGE_PATH,
+    API_KEY,
+    language,
+    country,
+    darkMode,
+    setLanguage,
+    user,
+  } = useStateContext();
   const [latestMovies, setLatestMovies] = useState([]);
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [discoverMovies, setDiscoverMovies] = useState([]);
@@ -43,7 +50,8 @@ export function HomePage() {
       <Header />
       <div className="home-body">
         <div className="title">
-          <h1 id="title">MoWeb </h1>{" "}
+          <h1 id="title">MoWeb </h1>
+
           {/* <img width={"50px"} src="/Movie_Maker_22593.png" alt="" /> */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -58,6 +66,8 @@ export function HomePage() {
             />
           </svg>
         </div>
+
+        <h1>{user ? "Registrao" : "no..."}</h1>
         <div>
           <CarouselSlider
             items={latestMovies}
