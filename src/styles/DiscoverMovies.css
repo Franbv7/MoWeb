@@ -27,7 +27,7 @@
 }
 
 .movies-list p {
-  width: 50rem;
+  /* width: 50rem; */
   font-size: 1.5rem;
 }
 
@@ -61,10 +61,16 @@
   font-size: 3rem;
 }
 
+.movie-data {
+  display: flex;
+  /* width: 65vw; */
+}
+
 .movie-info {
   display: flex;
-  gap: 5rem;
-  width: 65vw;
+  /* gap: 5rem; */
+  flex-direction: column;
+  width: 40vw;
 }
 
 .movie-text {
@@ -72,58 +78,6 @@
   flex-direction: column;
   justify-content: center;
 }
-
-/* .movie-text p {
-  text-decoration: underline;
-} */
-
-/* .movies-list-dark {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 70rem;
-} */
-
-/* .movies-list-dark img {
-  width: 25vw;
-} */
-
-/* .movies-list-dark p {
-  max-width: 50rem;
-  font-size: 1.5rem;
-} */
-
-/* .movies-list-dark li {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 3rem;
-  border-bottom: 1px solid aliceblue;
-  padding-bottom: 1rem;
-  min-width: 70rem;
-} */
-
-/* .movie-info-dark {
-  display: flex;
-  gap: 5rem;
-} */
-
-/* .movie-text-dark {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-} */
-
-/* .movies-list-dark h1 {
-  margin: 2px;
-  font-size: 5rem;
-}
-
-.movies-list-dark h3 {
-  margin-bottom: 1rem;
-  font-size: 3rem;
-} */
 
 .dark {
   background-color: #000;
@@ -151,6 +105,10 @@
   .movies-list p {
     max-width: 45vw;
     font-size: 1rem;
+  }
+
+  .movies-list img {
+    width: 33vw;
   }
 
   .movie-text {

@@ -61,13 +61,23 @@ export function NestTabs({
                       color: color,
                     }}
                   >
+                    {episode.still_path ? (
+                      <img
+                        alt={episode.name}
+                        src={`${IMAGE_PATH}${episode.still_path}`}
+                        width={"200px"}
+                        height={"113px"}
+                      />
+                    ) : (
+                      <img
+                        src={"/No-Image-Placeholder.svg"}
+                        alt={episode.name}
+                        width={"200px"}
+                        height={"113px"}
+                      />
+                    )}
                     <ListItemText
                       primary={`Episode ${episode.episode_number}: ${episode.name}`}
-                    />
-                    <img
-                      alt={episode.name}
-                      src={`${IMAGE_PATH}${episode.still_path}`}
-                      width={"200px"}
                     />
                   </ListItem>
                 </Link>

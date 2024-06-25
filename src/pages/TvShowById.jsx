@@ -13,9 +13,10 @@ import { Header } from "../components/Header";
 import "../styles/TvShowById.css";
 import "../styles/MovieById.css";
 import { NestDrawer } from "../components/NestDrawer";
-import { Button } from "@mui/material";
+import { Button, Rating } from "@mui/material";
 import ScrollToTop from "react-scroll-to-top";
 import { NestTabs } from "../components/NestTabs";
+import MovieRating from "../components/FaceRating";
 
 export function TvShowById() {
   const {
@@ -62,6 +63,29 @@ export function TvShowById() {
       } catch (error) {
         console.error("Error fetching TV show details:", error);
       }
+
+      const fetchEpisodesForSeason = async (seasonNumber) => {
+        if (!seasonEpisodes[seasonNumber]) {
+          try {
+            const seasonDetails = await fetchSeasonDetails(
+              API_KEY,
+              tvShowId,
+              seasonNumber,
+              language
+            );
+            setSeasonEpisodes((prevEpisodes) => ({
+              ...prevEpisodes,
+              [seasonNumber]: seasonDetails.episodes,
+            }));
+          } catch (error) {
+            console.error(
+              `Error fetching episodes for season ${seasonNumber}:`,
+              error
+            );
+          }
+        }
+      };
+      fetchEpisodesForSeason();
     };
 
     fetchData();
@@ -96,7 +120,7 @@ export function TvShowById() {
       <Header />
       <div className={`serie-details-body ${darkModeClass}`}>
         <section className="serie-details">
-          <div className={`image-container ${darkModeClass}`}>
+          <div className={`image-container${darkModeClass}`}>
             <div className="movie-logo-container">
               <img
                 className="movie-logo"
@@ -113,32 +137,42 @@ export function TvShowById() {
               alt=""
             />
           </div>
-          <p>{tvShow?.overview}</p>
+          <div className="details-text">
+            <p>{tvShow?.overview}</p>
 
-          <p>
-            {language === "es-ES" ? (
-              <u>Próximo episodio:</u>
-            ) : (
-              <u>Next episode:</u>
-            )}{" "}
-            {tvShow?.next_episode_to_air?.name}
-          </p>
-          <p>
-            {language === "es-ES" ? <u>Generos:</u> : <u>Genres:</u>}{" "}
-            {tvShow?.genres.map((genre) => genre.name).join(", ")}
-          </p>
-          <p>
-            {language === "es-ES" ? (
-              <u>Promedio de votos:</u>
-            ) : (
-              <u>Vote average:</u>
-            )}{" "}
-            {tvShow?.vote_average}
-          </p>
-          <p>
-            {language === "es-ES" ? <u>Popularidad:</u> : <u>Popularity:</u>}{" "}
-            {tvShow?.popularity}
-          </p>
+            <p>
+              {language === "es-ES" ? (
+                <u>Próximo episodio:</u>
+              ) : (
+                <u>Next episode:</u>
+              )}{" "}
+              {tvShow?.next_episode_to_air?.name}
+            </p>
+            <p>
+              {language === "es-ES" ? <u>Generos:</u> : <u>Genres:</u>}{" "}
+              {tvShow?.genres.map((genre) => genre.name).join(", ")}
+            </p>
+            <p>
+              {language === "es-ES" ? (
+                <u>Promedio de votos:</u>
+              ) : (
+                <u>Vote average:</u>
+              )}{" "}
+              {/* {tvShow?.vote_average} */}
+            </p>
+            <Rating
+              name="half-rating-read"
+              defaultValue={2.5}
+              precision={0.5}
+              value={tvShow?.vote_average / 2}
+              readOnly
+            />
+            <p>
+              {language === "es-ES" ? <u>Popularidad:</u> : <u>Popularity:</u>}{" "}
+              {/* {tvShow?.popularity} */}
+            </p>
+            <MovieRating popularity={tvShow?.popularity} />
+          </div>
           <Button variant="outlined">
             <Link
               className={darkMode ? "dark" : "btn-similares"}
@@ -169,10 +203,17 @@ export function TvShowById() {
                     key={person.id}
                   >
                     <Link to={`/person/${person.id}`}>
-                      <img
-                        src={`${CREDIT_IMAGE_PATH}${person.profile_path}`}
-                        alt=""
-                      />
+                      {person.profile_path ? (
+                        <img
+                          src={`${CREDIT_IMAGE_PATH}${person.profile_path}`}
+                          alt=""
+                        />
+                      ) : (
+                        <img
+                          src={"/No-Image-Placeholder.svg"}
+                          alt={person.name}
+                        />
+                      )}
                     </Link>
                     <h3>{person.name}</h3>
                     <p>"{person.character}"</p>

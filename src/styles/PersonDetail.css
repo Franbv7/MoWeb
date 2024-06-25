@@ -16,14 +16,41 @@
 }
 
 .credits {
+  /* width: 90vw; */
   display: flex;
+  gap: 5px;
+}
+
+.credits div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.credits ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  width: 40vw;
+}
+
+.credits img {
+  width: 200px;
 }
 
 .person-photo {
   width: 45vw;
+  border-radius: 10px;
 }
 
 .dark {
   background-color: #000;
   color: aliceblue;
+}
+
+@media (max-width: 450px) {
+  .credits img {
+    max-width: 40vw;
+  }
 }

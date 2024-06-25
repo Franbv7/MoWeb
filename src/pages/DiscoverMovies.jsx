@@ -7,8 +7,9 @@ import "../styles/DiscoverMovies.css";
 import "../styles/App.css";
 
 import { useStateContext } from "../context/stateContext";
-import { Pagination } from "@mui/material";
+import { Pagination, Rating } from "@mui/material";
 import ScrollToTop from "react-scroll-to-top";
+import MovieRating from "../components/FaceRating";
 
 export function DiscoverMovies() {
   const { API_KEY, IMAGE_PATH, language, darkMode, country } =
@@ -53,10 +54,19 @@ export function DiscoverMovies() {
               {movies?.map((movie) => (
                 <li key={movie.id} className={`movies-list-li${darkModeClass}`}>
                   <h3>{movie.title}</h3>
-                  <div className="movie-info">
-                    <Link to={`/movie/${movie.id}`}>
-                      <img src={`${IMAGE_PATH}${movie.poster_path}`} alt="" />
-                    </Link>
+                  <div className="movie-data">
+                    <div className="movie-info">
+                      <Link to={`/movie/${movie.id}`}>
+                        <img src={`${IMAGE_PATH}${movie.poster_path}`} alt="" />
+                      </Link>
+                      <Rating
+                        name="half-rating-read"
+                        defaultValue={2.5}
+                        precision={0.5}
+                        value={movie.vote_average / 2}
+                        readOnly
+                      />
+                    </div>
                     <div className="movie-text">
                       {/* <p>{movie.overview}</p> */}
                       <p>
@@ -67,22 +77,16 @@ export function DiscoverMovies() {
                         )}{" "}
                         {movie.release_date}
                       </p>
-                      <p>
-                        {language === "es-ES" ? (
-                          <u>Media de votos:</u>
-                        ) : (
-                          <u>Vote average:</u>
-                        )}{" "}
-                        {movie.vote_average}
-                      </p>
+
                       <p>
                         {language === "es-ES" ? (
                           <u>Popularidad:</u>
                         ) : (
                           <u>Popularity:</u>
                         )}{" "}
-                        {movie.popularity}
+                        {/* {movie.popularity} */}
                       </p>
+                      <MovieRating popularity={movie.popularity} />
                       <p>
                         {language === "es-ES" ? (
                           <u>Géneros:</u>

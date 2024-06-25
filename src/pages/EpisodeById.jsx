@@ -7,6 +7,7 @@ import { useStateContext } from "../context/stateContext";
 import "../styles/MovieById.css";
 import "../styles/EpisodeById.css";
 import ScrollToTop from "react-scroll-to-top";
+import { Rating } from "@mui/material";
 
 export function EpisodeById() {
   const { API_KEY, language, IMAGE_PATH, darkMode, CREDIT_IMAGE_PATH } =
@@ -42,7 +43,25 @@ export function EpisodeById() {
               src={`${IMAGE_PATH}${episodeDetails?.still_path}`}
               alt=""
             />
-            <p className="episode-overview">{episodeDetails?.overview}</p>
+
+            <div className="details-text">
+              <p className="episode-overview">{episodeDetails?.overview}</p>
+              <p>
+                {language === "es-ES" ? (
+                  <u>Promedio de votos:</u>
+                ) : (
+                  <u>Vote average:</u>
+                )}{" "}
+                {/* {movieDetails.vote_average} */}
+              </p>
+              <Rating
+                name="half-rating-read"
+                defaultValue={2.5}
+                precision={0.5}
+                value={episodeDetails?.vote_average / 2}
+                readOnly
+              />
+            </div>
           </section>
 
           {episodeDetails?.guest_stars && (

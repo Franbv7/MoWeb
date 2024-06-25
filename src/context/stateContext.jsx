@@ -155,7 +155,7 @@ export const StateProvider = ({ children }) => {
     localStorage.setItem("user", JSON.stringify(user));
   }, [user]);
 
-  console.log(user);
+  // console.log(user);
 
   return (
     <Context.Provider

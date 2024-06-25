@@ -77,7 +77,7 @@ export function Header() {
           { item: "Upcoming Movies", direction: "/upcoming" },
           { item: "Series", direction: "/tv" },
           { item: "Register", direction: "/register" },
-          { item: "User", direction: "/user" },
+          // { item: "User", direction: "/user" },
         ]
       : [
           { item: "Inicio", direction: "/" },
@@ -85,7 +85,7 @@ export function Header() {
           { item: "Próximos títulos", direction: "/upcoming" },
           { item: "Series", direction: "/tv" },
           { item: "Registro", direction: "/register" },
-          { item: "Usuario", direction: "/user" },
+          // { item: "Usuario", direction: "/user" },
         ];
 
   const color = darkMode ? "aliceblue" : "black";
@@ -193,8 +193,8 @@ export function Header() {
             </svg>
           </Button>
         </form>
-        <Link to={`/user`}>
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+        <Link className="user-link" to={`/user`}>
+          <Avatar alt="User" src="/static/images/avatar/1.jpg" />
         </Link>
 
         {/* <DarkModeSwitch checked={checked} onChange={handleChangeDarkMode} /> */}

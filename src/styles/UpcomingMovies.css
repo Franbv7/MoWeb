@@ -63,7 +63,8 @@
 
 .movie-info {
   display: flex;
-  gap: 5rem;
+  flex-direction: column;
+  /* gap: 5rem; */
   width: 65vw;
 }
 
@@ -147,6 +148,10 @@
   .upcoming-movies-list p {
     max-width: 60vw;
     font-size: 1rem;
+  }
+
+  .upcoming-movies-list img {
+    width: 33vw;
   }
 
   .movie-text {

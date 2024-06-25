@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 
 import { MovieById } from "./pages/MovieById";
-import { LatestSeries } from "./components/DiscoverSeries";
-import { UpcomingMovies } from "./components/UpcomingMovies";
+import { LatestSeries } from "./pages/DiscoverSeries";
+import { UpcomingMovies } from "./pages/UpcomingMovies";
 import { SearchResultsPage } from "./components/SearchResultsPage";
 
-import { PersonDetail } from "./components/PersonDetail";
+import { PersonDetail } from "./pages/PersonDetail";
 import { NewUser } from "./pages/NewUser";
 
 // import { StateProvider } from "./context/stateContext";
@@ -34,8 +34,8 @@ function App() {
         <Route path="/register" element={<NewUser />} />
         <Route path="/similar/:serieId" element={<SimilarSeries />} />
         <Route path="/similarMovies/:movieId" element={<SimilarMovies />} />
-        <Route path="/user" element={<UserPage />} />
-        <Route path="/approved" element={<Approved />} />
+        {/* <Route path="/user" element={<UserPage />} /> */}
+        {/* <Route path="/approved" element={<Approved />} /> */}
         <Route
           path="/episode/:seriesId/:seasonNumber/:episodeNumber"
           element={<EpisodeById />}

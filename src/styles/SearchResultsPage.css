@@ -1,53 +1,3 @@
-/* .search-results-body {
-  width: 70rem;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 2rem;
-  position: relative;
-  padding: 20px;
-}
-
-.search-results-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 70rem;
-}
-
-.search-results-list img {
-  width: 25vw;
-}
-
-.search-results-list p {
-  max-width: 50rem;
-}
-
-.search-results-list li {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 3rem;
-}
-
-h1 {
-  margin: 2px;
-} */
-
-/* .search-results-body {
-  width: 70rem;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 2rem;
-  position: relative;
-  padding: 20px;
-  font-family: "StreetLCG2";
-} */
-
 .search-results-body {
   margin: auto;
   display: flex;
@@ -206,5 +156,9 @@ h1 {
 
   .search-results-info {
     gap: 1rem;
+  }
+
+  .search-results-list img {
+    width: 33vw;
   }
 }

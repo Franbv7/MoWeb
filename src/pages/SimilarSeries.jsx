@@ -8,6 +8,8 @@ import {
 import { Link, useParams } from "react-router-dom";
 import { useStateContext } from "../context/stateContext";
 import ScrollToTop from "react-scroll-to-top";
+import MovieRating from "../components/FaceRating";
+import { Rating } from "@mui/material";
 
 export function SimilarSeries() {
   const { IMAGE_PATH, CREDIT_IMAGE_PATH, API_KEY, language, darkMode } =
@@ -50,34 +52,41 @@ export function SimilarSeries() {
                 className={`search-results-list-li${darkModeClass}`}
               >
                 <h3>{results.name}</h3>
-                <div className={`search-results-info ${darkModeClass}`}>
-                  <Link to={`/tv/${results.id}`}>
-                    <img src={`${IMAGE_PATH}${results.poster_path}`} />
-                  </Link>
-                  {/* <p>{results.overview}</p>
-                <p>{results.first_air_date}</p>
-                <p>Average vote: {results.vote_average}</p>
-                <p>Popularity: {results.popularity}</p> */}
+                <div className="movie-data">
+                  <div className={`movie-info ${darkModeClass}`}>
+                    <Link to={`/tv/${results.id}`}>
+                      <img src={`${IMAGE_PATH}${results.poster_path}`} />
+                    </Link>
+                    <Rating
+                      name="half-rating-read"
+                      defaultValue={2.5}
+                      precision={0.5}
+                      value={results.vote_average / 2}
+                      readOnly
+                    />
+                  </div>
                   <div className="movie-text">
                     {/* <p>{movie.overview}</p> */}
                     <p>
-                      {language === "es-ES"
-                        ? "Fecha de estreno:"
-                        : "Release date:"}{" "}
+                      {language === "es-ES" ? (
+                        <u>Fecha de estreno:</u>
+                      ) : (
+                        <u>Release date:</u>
+                      )}{" "}
                       {results.release_date}
                     </p>
+
                     <p>
-                      {language === "es-ES"
-                        ? "Media de votos:"
-                        : "Vote average:"}{" "}
-                      {results.vote_average}
+                      {language === "es-ES" ? (
+                        <u>Popularidad:</u>
+                      ) : (
+                        <u>Popularity:</u>
+                      )}{" "}
+                      {/* {results.popularity} */}
                     </p>
+                    <MovieRating popularity={results.popularity} />
                     <p>
-                      {language === "es-ES" ? "Popularidad:" : "Popularity:"}{" "}
-                      {results.popularity}
-                    </p>
-                    <p>
-                      {language === "es-ES" ? "Géneros:" : "Genres:"}{" "}
+                      {language === "es-ES" ? <u>Géneros:</u> : <u>Genres:</u>}{" "}
                       {results.genre_ids
                         .map((genreId) => {
                           const genre = genres.find(

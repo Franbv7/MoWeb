@@ -14,15 +14,8 @@ import CarouselSlider from "../components/Carousel";
 import ScrollToTop from "react-scroll-to-top";
 
 export function HomePage() {
-  const {
-    IMAGE_PATH,
-    API_KEY,
-    language,
-    country,
-    darkMode,
-    setLanguage,
-    user,
-  } = useStateContext();
+  const { IMAGE_PATH, API_KEY, language, country, darkMode } =
+    useStateContext();
   const [latestMovies, setLatestMovies] = useState([]);
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [discoverMovies, setDiscoverMovies] = useState([]);
@@ -66,8 +59,6 @@ export function HomePage() {
             />
           </svg>
         </div>
-
-        <h1>{user ? "Registrao" : "no..."}</h1>
         <div>
           <CarouselSlider
             items={latestMovies}
