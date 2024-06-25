@@ -97,15 +97,15 @@ export function LatestSeries() {
                             {serie.first_air_date}
                           </p>
 
-                          <p>
+                          {/* <p>
                             {language === "es-ES" ? (
                               <u>Popularidad:</u>
                             ) : (
                               <u>Popularity:</u>
                             )}{" "}
-                            {/* {movie.popularity} */}
+                            {movie.popularity}
                           </p>
-                          <MovieRating popularity={serie.popularity} />
+                          <MovieRating popularity={serie.popularity} /> */}
                           <p>
                             {language === "es-ES" ? (
                               <u>Géneros:</u>

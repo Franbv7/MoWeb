@@ -78,15 +78,15 @@ export function DiscoverMovies() {
                         {movie.release_date}
                       </p>
 
-                      <p>
+                      {/* <p>
                         {language === "es-ES" ? (
                           <u>Popularidad:</u>
                         ) : (
                           <u>Popularity:</u>
                         )}{" "}
-                        {/* {movie.popularity} */}
+                        {movie.popularity}
                       </p>
-                      <MovieRating popularity={movie.popularity} />
+                      <MovieRating popularity={movie.popularity} /> */}
                       <p>
                         {language === "es-ES" ? (
                           <u>Géneros:</u>

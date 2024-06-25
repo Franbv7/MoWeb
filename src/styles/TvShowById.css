@@ -26,6 +26,7 @@
 
 .serie-details p {
   width: 70vw;
+  margin-top: 10px;
 }
 
 /* .serie-details img {
@@ -48,7 +49,7 @@
 }
 
 .serie-credits-container {
-  width: 90vw;
+  width: 82vw;
   overflow-x: scroll;
 }
 
@@ -179,10 +180,6 @@
 }
 
 @media (max-width: 450px) {
-  /* .serie-details {
-    margin-top: 3rem;
-  } */
-
   .serie-details-credits {
     width: 90vw;
   }
@@ -193,6 +190,14 @@
 
   .credits-section {
     width: 90vw;
+  }
+
+  .image-containerdark img {
+    top: 5px;
+  }
+
+  .image-container img {
+    top: 5px;
   }
 
   .serie-credits img {

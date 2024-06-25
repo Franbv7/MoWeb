@@ -167,11 +167,11 @@ export function TvShowById() {
               value={tvShow?.vote_average / 2}
               readOnly
             />
-            <p>
+            {/* <p>
               {language === "es-ES" ? <u>Popularidad:</u> : <u>Popularity:</u>}{" "}
-              {/* {tvShow?.popularity} */}
+              {tvShow?.popularity}
             </p>
-            <MovieRating popularity={tvShow?.popularity} />
+            <MovieRating popularity={tvShow?.popularity} /> */}
           </div>
           <Button variant="outlined">
             <Link

@@ -142,11 +142,11 @@ export function MovieById() {
               value={movieDetails.vote_average / 2}
               readOnly
             />
-            <p>
+            {/* <p>
               {language === "es-ES" ? <u>Popularidad:</u> : <u>Popularity:</u>}{" "}
               {movieDetails.popularity}
             </p>
-            <MovieRating popularity={movieDetails.popularity} />
+            <MovieRating popularity={movieDetails.popularity} /> */}
           </div>
           <Button variant="outlined" size="small">
             <Link

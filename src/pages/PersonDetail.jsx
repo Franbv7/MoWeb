@@ -70,45 +70,42 @@ export function PersonDetail() {
           <a href={personDetails?.homepage}>HomePage</a>
         )}
         {/* <h2> Known for: </h2> */}
-        <div className="credits">
-          {movieCredits?.length > 0 && (
-            <div>
-              <h3>{language === "es-ES" ? "Películas" : "Movies"}</h3>
-              <ul>
-                {movieCredits?.map((movie) => (
-                  <li key={movie.id}>
-                    {/* <h4>{movie.title}</h4> */}
-                    <Link to={`/movie/${movie.id}`}>
-                      <img
-                        src={`${MOVIE_IMAGE_PATH}${movie.poster_path}`}
-                        alt=""
-                      />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+        {/* <div className="credits"> */}
+        {movieCredits?.length > 0 && (
+          <div className="person-movies">
+            <h3>{language === "es-ES" ? "Películas" : "Movies"}</h3>
+            <ul>
+              {movieCredits?.map((movie) => (
+                <li key={movie.id}>
+                  {/* <h4>{movie.title}</h4> */}
+                  <Link to={`/movie/${movie.id}`}>
+                    <img
+                      src={`${MOVIE_IMAGE_PATH}${movie.poster_path}`}
+                      alt=""
+                    />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
-          {tvCredits?.length > 0 && (
-            <div>
-              <h3>Series</h3>
-              <ul>
-                {tvCredits?.map((tv) => (
-                  <li key={tv.id}>
-                    {/* <h4>{tv.name}</h4> */}
-                    <Link to={`/tv/${tv.id}`}>
-                      <img
-                        src={`${MOVIE_IMAGE_PATH}${tv.poster_path}`}
-                        alt=""
-                      />
-                    </Link>
-                  </li>
-                ))}
-              </ul>{" "}
-            </div>
-          )}
-        </div>
+        {tvCredits?.length > 0 && (
+          <div className="person-movies">
+            <h3>Series</h3>
+            <ul>
+              {tvCredits?.map((tv) => (
+                <li key={tv.id}>
+                  {/* <h4>{tv.name}</h4> */}
+                  <Link to={`/tv/${tv.id}`}>
+                    <img src={`${MOVIE_IMAGE_PATH}${tv.poster_path}`} alt="" />
+                  </Link>
+                </li>
+              ))}
+            </ul>{" "}
+          </div>
+        )}
+        {/* </div> */}
         <ScrollToTop smooth />
       </div>
     </>

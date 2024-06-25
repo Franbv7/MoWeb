@@ -79,15 +79,15 @@ export function SimilarMovies() {
                         {results.release_date}
                       </p>
 
-                      <p>
+                      {/* <p>
                         {language === "es-ES" ? (
                           <u>Popularidad:</u>
                         ) : (
                           <u>Popularity:</u>
                         )}{" "}
-                        {/* {results.popularity} */}
+                        {results.popularity}
                       </p>
-                      <MovieRating popularity={results.popularity} />
+                      <MovieRating popularity={results.popularity} /> */}
                       <p>
                         {language === "es-ES" ? (
                           <u>Géneros:</u>

@@ -193,11 +193,11 @@ export function Header() {
             </svg>
           </Button>
         </form>
-        <Link className="user-link" to={`/user`}>
+        {/* <Link className="user-link" to={`/user`}>
           <Avatar alt="User" src="/static/images/avatar/1.jpg" />
-        </Link>
+        </Link> */}
 
-        {/* <DarkModeSwitch checked={checked} onChange={handleChangeDarkMode} /> */}
+        <DarkModeSwitch checked={checked} onChange={handleChangeDarkMode} />
       </nav>
     </div>
   );

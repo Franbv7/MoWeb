@@ -116,7 +116,7 @@ export default function TemporaryDrawer({ items, sx }) {
       </svg>
 
       <List>
-        <DarkModeSwitch checked={checked} onChange={handleChangeDarkMode} />
+        {/* <DarkModeSwitch checked={checked} onChange={handleChangeDarkMode} /> */}
         {/* <ListItem disablePadding>
           <ListItemButton>
             <Link
