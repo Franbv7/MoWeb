@@ -16,7 +16,7 @@ import { NestDrawer } from "../components/NestDrawer";
 import { Button, Rating } from "@mui/material";
 import ScrollToTop from "react-scroll-to-top";
 import { NestTabs } from "../components/NestTabs";
-import MovieRating from "../components/FaceRating";
+import CustomRating from "../components/CustomRating";
 
 export function TvShowById() {
   const {
@@ -152,26 +152,21 @@ export function TvShowById() {
               {language === "es-ES" ? <u>Generos:</u> : <u>Genres:</u>}{" "}
               {tvShow?.genres.map((genre) => genre.name).join(", ")}
             </p>
-            <p>
+
+            <p className="vote-average-p">
               {language === "es-ES" ? (
                 <u>Promedio de votos:</u>
               ) : (
                 <u>Vote average:</u>
               )}{" "}
-              {/* {tvShow?.vote_average} */}
+              <CustomRating
+                name="half-rating-read"
+                defaultValue={2.5}
+                precision={0.5}
+                value={tvShow?.vote_average / 2}
+                readOnly
+              />
             </p>
-            <Rating
-              name="half-rating-read"
-              defaultValue={2.5}
-              precision={0.5}
-              value={tvShow?.vote_average / 2}
-              readOnly
-            />
-            {/* <p>
-              {language === "es-ES" ? <u>Popularidad:</u> : <u>Popularity:</u>}{" "}
-              {tvShow?.popularity}
-            </p>
-            <MovieRating popularity={tvShow?.popularity} /> */}
           </div>
           <Button variant="outlined">
             <Link

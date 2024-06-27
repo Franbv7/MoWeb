@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "../components/Header";
 import { fetchDiscoverMovies, fetchMovieGenres } from "../services";
+import { formatDate } from "../utils/formatDate";
 
 import "../styles/DiscoverMovies.css";
 import "../styles/App.css";
@@ -10,6 +11,7 @@ import { useStateContext } from "../context/stateContext";
 import { Pagination, Rating } from "@mui/material";
 import ScrollToTop from "react-scroll-to-top";
 import MovieRating from "../components/FaceRating";
+import CustomRating from "../components/CustomRating";
 
 export function DiscoverMovies() {
   const { API_KEY, IMAGE_PATH, language, darkMode, country } =
@@ -59,7 +61,7 @@ export function DiscoverMovies() {
                       <Link to={`/movie/${movie.id}`}>
                         <img src={`${IMAGE_PATH}${movie.poster_path}`} alt="" />
                       </Link>
-                      <Rating
+                      <CustomRating
                         name="half-rating-read"
                         defaultValue={2.5}
                         precision={0.5}
@@ -68,25 +70,15 @@ export function DiscoverMovies() {
                       />
                     </div>
                     <div className="movie-text">
-                      {/* <p>{movie.overview}</p> */}
                       <p>
                         {language === "es-ES" ? (
                           <u>Fecha de estreno:</u>
                         ) : (
                           <u>Release date:</u>
                         )}{" "}
-                        {movie.release_date}
+                        {formatDate(movie.release_date)}
                       </p>
 
-                      {/* <p>
-                        {language === "es-ES" ? (
-                          <u>Popularidad:</u>
-                        ) : (
-                          <u>Popularity:</u>
-                        )}{" "}
-                        {movie.popularity}
-                      </p>
-                      <MovieRating popularity={movie.popularity} /> */}
                       <p>
                         {language === "es-ES" ? (
                           <u>Géneros:</u>

@@ -7,6 +7,8 @@ import "../styles/UpcomingMovies.css";
 import { useStateContext } from "../context/stateContext";
 import { Pagination, Rating } from "@mui/material";
 import MovieRating from "../components/FaceRating";
+import CustomRating from "../components/CustomRating";
+import { formatDate } from "../utils/formatDate";
 
 export function UpcomingMovies() {
   const { API_KEY, IMAGE_PATH, language, country, darkMode } =
@@ -59,7 +61,7 @@ export function UpcomingMovies() {
                       <Link to={`/movie/${movie.id}`}>
                         <img src={`${IMAGE_PATH}${movie.poster_path}`} alt="" />
                       </Link>
-                      <Rating
+                      <CustomRating
                         name="half-rating-read"
                         defaultValue={2.5}
                         precision={0.5}
@@ -75,18 +77,9 @@ export function UpcomingMovies() {
                         ) : (
                           <u>Release date:</u>
                         )}{" "}
-                        {movie.release_date}
+                        {formatDate(movie.release_date)}
                       </p>
 
-                      {/* <p>
-                        {language === "es-ES" ? (
-                          <u>Popularidad:</u>
-                        ) : (
-                          <u>Popularity:</u>
-                        )}{" "}
-                        {movie.popularity}
-                      </p>
-                      <MovieRating popularity={movie.popularity} /> */}
                       <p>
                         {language === "es-ES" ? (
                           <u>Géneros:</u>

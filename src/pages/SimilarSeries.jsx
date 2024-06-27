@@ -9,7 +9,8 @@ import { Link, useParams } from "react-router-dom";
 import { useStateContext } from "../context/stateContext";
 import ScrollToTop from "react-scroll-to-top";
 import MovieRating from "../components/FaceRating";
-import { Rating } from "@mui/material";
+import CustomRating from "../components/CustomRating";
+import { formatDate } from "../utils/formatDate";
 
 export function SimilarSeries() {
   const { IMAGE_PATH, CREDIT_IMAGE_PATH, API_KEY, language, darkMode } =
@@ -57,7 +58,7 @@ export function SimilarSeries() {
                     <Link to={`/tv/${results.id}`}>
                       <img src={`${IMAGE_PATH}${results.poster_path}`} />
                     </Link>
-                    <Rating
+                    <CustomRating
                       name="half-rating-read"
                       defaultValue={2.5}
                       precision={0.5}
@@ -73,18 +74,9 @@ export function SimilarSeries() {
                       ) : (
                         <u>Release date:</u>
                       )}{" "}
-                      {results.release_date}
+                      {formatDate(results.release_date)}
                     </p>
 
-                    {/* <p>
-                      {language === "es-ES" ? (
-                        <u>Popularidad:</u>
-                      ) : (
-                        <u>Popularity:</u>
-                      )}{" "}
-                      {results.popularity}
-                    </p>
-                    <MovieRating popularity={results.popularity} /> */}
                     <p>
                       {language === "es-ES" ? <u>Géneros:</u> : <u>Genres:</u>}{" "}
                       {results.genre_ids

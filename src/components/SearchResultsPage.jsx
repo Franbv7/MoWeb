@@ -7,6 +7,7 @@ import "../styles/App.css";
 
 import { useStateContext } from "../context/stateContext";
 import { Pagination } from "@mui/material";
+import CustomRating from "../components/CustomRating";
 
 export function SearchResultsPage() {
   const { API_KEY, IMAGE_PATH, language, darkMode } = useStateContext();
@@ -37,7 +38,7 @@ export function SearchResultsPage() {
     return b.popularity - a.popularity;
   });
 
-  // console.log("darkMode->", darkMode);
+  console.log(searchResults);
 
   const darkModeClass = darkMode ? "dark" : "";
 
@@ -74,12 +75,21 @@ export function SearchResultsPage() {
                     <h3>{result.name ?? result.title}</h3>
                     <div className={`search-results-info ${darkModeClass}`}>
                       {result.poster_path ? (
-                        <Link to={`/${result.media_type}/${result.id}`}>
-                          <img
-                            src={`${IMAGE_PATH}${result.poster_path}`}
-                            alt=""
+                        <div className="movie-info">
+                          <Link to={`/${result.media_type}/${result.id}`}>
+                            <img
+                              src={`${IMAGE_PATH}${result.poster_path}`}
+                              alt=""
+                            />
+                          </Link>
+                          <CustomRating
+                            name="half-rating-read"
+                            defaultValue={2.5}
+                            precision={0.5}
+                            value={result.vote_average / 2}
+                            readOnly
                           />
-                        </Link>
+                        </div>
                       ) : (
                         <>
                           <Link to={`/${result.media_type}/${result.id}`}>
@@ -88,27 +98,22 @@ export function SearchResultsPage() {
                           <p>No hay </p>
                         </>
                       )}
-                      <div className={`seacrh-results-text ${darkModeClass}`}>
+                      <div className={`search-results-text ${darkModeClass}`}>
                         <p>
-                          {language === "es-ES"
-                            ? "Fecha de estreno:"
-                            : "Release date:"}{" "}
-                          {result.release_date ?? result.first_air_date}
+                          {language === "es-ES" ? (
+                            <u>Fecha de estreno:</u>
+                          ) : (
+                            <u>Release date:</u>
+                          )}{" "}
+                          {result.first_air_date ?? result.release_date}
                         </p>
+
                         <p>
-                          {language === "es-ES"
-                            ? "Media de votos:"
-                            : "Vote average:"}{" "}
-                          {result.vote_average}
-                        </p>
-                        <p>
-                          {language === "es-ES"
-                            ? "Popularidad:"
-                            : "Popularity:"}{" "}
-                          {result.popularity}
-                        </p>
-                        <p>
-                          {language === "es-ES" ? "Géneros:" : "Genres:"}{" "}
+                          {language === "es-ES" ? (
+                            <u>Géneros:</u>
+                          ) : (
+                            <u>Genres:</u>
+                          )}{" "}
                           {result.genre_ids
                             .map((genreId) => {
                               const genre = genres.find(
@@ -118,6 +123,7 @@ export function SearchResultsPage() {
                             })
                             .join(", ")}
                         </p>
+                        <p> {result.media_type}</p>
                       </div>
                     </div>
                   </li>

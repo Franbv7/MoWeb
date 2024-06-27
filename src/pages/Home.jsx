@@ -30,7 +30,7 @@ export function HomePage() {
     fetchUpcomingMovies(API_KEY, language, country).then((data) => {
       setLatestMovies(data.results);
     });
-    fetchTrendingSeries(API_KEY).then(setTrendingSeries);
+    fetchTrendingSeries(API_KEY, language).then(setTrendingSeries);
     fetchTrendingMovies(API_KEY, language).then(setTrendingMovies);
   }, [API_KEY, language, country]);
 
@@ -63,7 +63,11 @@ export function HomePage() {
           <CarouselSlider
             items={latestMovies}
             linkBase="/movie"
-            imageSource={(item) => `${IMAGE_PATH}${item.backdrop_path}`}
+            imageSource={(item) =>
+              item.backdrop_path
+                ? `${IMAGE_PATH}${item.backdrop_path}`
+                : "No-Image-Placeholder.svg"
+            }
             imageAlt={(item) => item.title}
             itemName={(item) => item.title}
           />
@@ -75,7 +79,7 @@ export function HomePage() {
           <Slider
             items={trendingSeries}
             linkBase="/tv"
-            imageSource={(item) => `${IMAGE_PATH}${item.backdrop_path}`}
+            imageSource={(item) => `${IMAGE_PATH}${item.poster_path}`}
             imageAlt={(item) => item.name}
             itemName={(item) => item.name}
           />
@@ -86,7 +90,7 @@ export function HomePage() {
           <Slider
             items={discoverMovies}
             linkBase="/movie"
-            imageSource={(item) => `${IMAGE_PATH}${item.backdrop_path}`}
+            imageSource={(item) => `${IMAGE_PATH}${item.poster_path}`}
             imageAlt={(item) => item.title}
             itemName={(item) => item.title}
           />
@@ -99,7 +103,7 @@ export function HomePage() {
           <Slider
             items={trendingMovies}
             linkBase="/movie"
-            imageSource={(item) => `${IMAGE_PATH}${item.backdrop_path}`}
+            imageSource={(item) => `${IMAGE_PATH}${item.poster_path}`}
             imageAlt={(item) => item.title}
             itemName={(item) => item.title}
           />

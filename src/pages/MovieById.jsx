@@ -13,9 +13,11 @@ import { Link } from "react-router-dom";
 import { useStateContext } from "../context/stateContext";
 
 import "../styles/MovieById.css";
-import { Button, Rating } from "@mui/material";
+import { Button } from "@mui/material";
 import ScrollToTop from "react-scroll-to-top";
-import MovieRating from "../components/FaceRating";
+
+import CustomRating from "../components/CustomRating";
+import { formatDate } from "../utils/formatDate";
 
 export function MovieById() {
   const {
@@ -36,6 +38,18 @@ export function MovieById() {
   const [genres, setGenres] = useState([]);
   const [video, setVideo] = useState(null);
   const [providers, setProviders] = useState(null);
+
+  // const CustomRating = styled(Rating)(({ theme }) => ({
+  //   "& .MuiRating-iconFilled": {
+  //     color: theme.palette.mode === "dark" ? "#ffb400" : "#ffa726",
+  //   },
+  //   "& .MuiRating-iconHover": {
+  //     color: theme.palette.mode === "dark" ? "#ffb400" : "#ffca28",
+  //   },
+  //   "& .MuiRating-iconEmpty": {
+  //     color: theme.palette.mode === "dark" ? "#ffffff50" : "#cccaca65",
+  //   },
+  // }));
 
   useEffect(() => {
     const fetchData = async () => {
@@ -125,28 +139,22 @@ export function MovieById() {
               ) : (
                 <u>Release date:</u>
               )}{" "}
-              {movieDetails.release_date}
+              {formatDate(movieDetails.release_date)}
             </p>
-            <p>
+            <p className="vote-average-p">
               {language === "es-ES" ? (
                 <u>Promedio de votos:</u>
               ) : (
                 <u>Vote average:</u>
               )}{" "}
-              {/* {movieDetails.vote_average} */}
+              <CustomRating
+                name="half-rating-read"
+                defaultValue={2.5}
+                precision={0.5}
+                value={movieDetails.vote_average / 2}
+                readOnly
+              />
             </p>
-            <Rating
-              name="half-rating-read"
-              defaultValue={2.5}
-              precision={0.5}
-              value={movieDetails.vote_average / 2}
-              readOnly
-            />
-            {/* <p>
-              {language === "es-ES" ? <u>Popularidad:</u> : <u>Popularity:</u>}{" "}
-              {movieDetails.popularity}
-            </p>
-            <MovieRating popularity={movieDetails.popularity} /> */}
           </div>
           <Button variant="outlined" size="small">
             <Link
@@ -183,7 +191,13 @@ export function MovieById() {
               <p>No hay proveedores disponibles</p>
             )}
           </ul>
-          <p>Source: </p> <a href="https://www.justwatch.com">JustWatch</a>
+          <p>Source: </p>{" "}
+          <Link
+            className={darkMode ? "dark" : "btn-similares"}
+            href="https://www.justwatch.com"
+          >
+            JustWatch
+          </Link>
         </div>
 
         <div className="movie-trailer">

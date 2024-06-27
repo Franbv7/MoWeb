@@ -12,10 +12,6 @@
   align-items: center;
 }
 
-/* .movie-credits {
-  list-style: none;
-} */
-
 .movie-details {
   display: flex;
   flex-direction: column;
@@ -26,11 +22,8 @@
 
 .movie-details p {
   width: 70vw;
+  margin-top: 10px;
 }
-
-/* .movie-details img {
-  width: 40vw;
-} */
 
 .movie-credits Figure {
   width: 100px;
@@ -85,12 +78,14 @@
   position: relative;
   display: inline-block;
   margin-top: 3rem;
+  mask-image: linear-gradient(black 80%, transparent);
 }
 
 .image-containerdark {
   position: relative;
   display: inline-block;
   margin-top: 3rem;
+  mask-image: linear-gradient(black 80%, transparent);
 }
 
 .image-container img {
@@ -99,19 +94,19 @@
   height: auto;
 }
 
-.image-container::after {
+/* .image-container::after {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 30%; /* Ajusta este valor para controlar la altura del gradiente */
+  height: 30%;
   background: linear-gradient(
     to top,
     rgba(255, 255, 255, 1),
     rgba(255, 255, 255, 0)
-  ); /* Ajusta los colores y opacidades según necesites */
-}
+  );
+} */
 
 .image-containerdark {
   position: relative;
@@ -124,19 +119,15 @@
   height: auto;
 }
 
-.image-containerdark::after {
+/* .image-containerdark::after {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 30%; /* Ajusta este valor para controlar la altura del gradiente */
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 1),
-    rgba(0, 0, 0, 0)
-  ); /* Ajusta los colores y opacidades según necesites */
-}
+  height: 30%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+} */
 
 .movie-logo {
   position: absolute;
@@ -178,6 +169,7 @@
 
 .movie-providers img {
   width: 5vw;
+  border-radius: 10px;
 }
 
 .btn-similares {
@@ -187,6 +179,12 @@
 .dark {
   background-color: #000;
   color: aliceblue;
+}
+
+.vote-average-p {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 @media (max-width: 450px) {

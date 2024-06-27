@@ -8,6 +8,7 @@ import "../styles/MovieById.css";
 import "../styles/EpisodeById.css";
 import ScrollToTop from "react-scroll-to-top";
 import { Rating } from "@mui/material";
+import CustomRating from "../components/CustomRating";
 
 export function EpisodeById() {
   const { API_KEY, language, IMAGE_PATH, darkMode, CREDIT_IMAGE_PATH } =
@@ -46,21 +47,21 @@ export function EpisodeById() {
 
             <div className="details-text">
               <p className="episode-overview">{episodeDetails?.overview}</p>
-              <p>
+
+              <p className="vote-average-p">
                 {language === "es-ES" ? (
                   <u>Promedio de votos:</u>
                 ) : (
                   <u>Vote average:</u>
                 )}{" "}
-                {/* {movieDetails.vote_average} */}
+                <CustomRating
+                  name="half-rating-read"
+                  defaultValue={2.5}
+                  precision={0.5}
+                  value={episodeDetails?.vote_average / 2}
+                  readOnly
+                />
               </p>
-              <Rating
-                name="half-rating-read"
-                defaultValue={2.5}
-                precision={0.5}
-                value={episodeDetails?.vote_average / 2}
-                readOnly
-              />
             </div>
           </section>
 

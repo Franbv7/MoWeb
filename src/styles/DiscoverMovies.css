@@ -24,11 +24,13 @@
 
 .movies-list img {
   width: 25vw;
+  border-radius: 5px;
 }
 
 .movies-list p {
   /* width: 50rem; */
   font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .movies-list-li {
@@ -63,20 +65,20 @@
 
 .movie-data {
   display: flex;
-  /* width: 65vw; */
+  width: 65vw;
 }
 
 .movie-info {
   display: flex;
   /* gap: 5rem; */
   flex-direction: column;
-  width: 40vw;
+  width: 30vw;
 }
 
 .movie-text {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .dark {
@@ -87,6 +89,10 @@
 @media (max-width: 450px) {
   .discover-movies-body {
     width: 90vw;
+  }
+
+  .movie-data {
+    width: auto;
   }
 
   .movies-list {
@@ -117,5 +123,6 @@
 
   .movie-info {
     gap: 1rem;
+    width: 40vw;
   }
 }

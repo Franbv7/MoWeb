@@ -9,7 +9,8 @@ import { Link } from "react-router-dom";
 // import { IMAGE_PATH, CREDIT_IMAGE_PATH } from "../context/stateContext";
 import { useStateContext } from "../context/stateContext";
 import { Pagination, Rating } from "@mui/material";
-import MovieRating from "../components/FaceRating";
+import CustomRating from "../components/CustomRating";
+import { formatDate } from "../utils/formatDate";
 
 export function LatestSeries() {
   const {
@@ -78,7 +79,7 @@ export function LatestSeries() {
                               alt=""
                             />
                           </Link>
-                          <Rating
+                          <CustomRating
                             name="half-rating-read"
                             defaultValue={2.5}
                             precision={0.5}
@@ -94,7 +95,7 @@ export function LatestSeries() {
                             ) : (
                               <u>Release date:</u>
                             )}{" "}
-                            {serie.first_air_date}
+                            {formatDate(serie.first_air_date)}
                           </p>
 
                           {/* <p>
