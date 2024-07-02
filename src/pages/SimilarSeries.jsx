@@ -8,7 +8,7 @@ import {
 import { Link, useParams } from "react-router-dom";
 import { useStateContext } from "../context/stateContext";
 import ScrollToTop from "react-scroll-to-top";
-import MovieRating from "../components/FaceRating";
+
 import CustomRating from "../components/CustomRating";
 import { formatDate } from "../utils/formatDate";
 

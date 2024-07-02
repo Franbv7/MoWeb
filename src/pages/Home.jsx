@@ -66,7 +66,7 @@ export function HomePage() {
             imageSource={(item) =>
               item.backdrop_path
                 ? `${IMAGE_PATH}${item.backdrop_path}`
-                : "No-Image-Placeholder.svg"
+                : "Image_not_available.png"
             }
             imageAlt={(item) => item.title}
             itemName={(item) => item.title}

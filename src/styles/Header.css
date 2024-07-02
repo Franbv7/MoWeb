@@ -38,6 +38,11 @@ input {
   border-bottom: 1px solid aliceblue;
   outline: none;
   background: transparent;
+  width: 25vw;
+}
+
+form {
+  width: 30vw;
 }
 
 form button:hover {
@@ -47,10 +52,16 @@ form button:hover {
 .drawer-cross {
   width: 2.5rem;
   margin: 1rem 0 0 1rem;
+  cursor: pointer;
 }
 
 .user-link {
   margin-right: 1rem;
+}
+
+.burger-logo {
+  display: flex;
+  align-items: center;
 }
 
 @media (max-width: 450px) {

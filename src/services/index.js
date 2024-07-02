@@ -1,5 +1,3 @@
-// services/index.js
-
 export const createRequestToken = async (bearerToken) => {
   try {
     const response = await fetch(
@@ -219,7 +217,7 @@ export const fetchUpcomingMovies = async (
 };
 
 export const fetchSeries = async (apiKey, country, language, page) => {
-  const url = `https://api.themoviedb.org/3/discover/tv?include_adult=true&include_null_first_air_dates=true&language=${language}&page=${page}&ssort_by=popularity.desc&with_origin_country=${country}`;
+  const url = `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=true&language=${language}&page=${page}&ssort_by=popularity.desc&with_origin_country=${country}`;
   const options = {
     method: "GET",
     headers: {
@@ -305,8 +303,8 @@ export const fetchTvShowByName = async (name, apiKey, language) => {
   }
 };
 
-export const fetchTvShowById = async (id, apiKey, language) => {
-  const url = `https://api.themoviedb.org/3/tv/${id}?language=${language}`;
+export const fetchTvShowById = async (serieId, apiKey, language) => {
+  const url = `https://api.themoviedb.org/3/tv/${serieId}?language=${language}`;
   const options = {
     method: "GET",
     headers: {
@@ -319,7 +317,7 @@ export const fetchTvShowById = async (id, apiKey, language) => {
     const response = await fetch(url, options);
     const data = await response.json();
 
-    console.log("Tv Show by Id ->", data);
+    // console.log("Tv Show by Id ->", data);
 
     return data;
   } catch (error) {
@@ -369,8 +367,8 @@ export const fetchCredits = async (movieId, apiKey, language) => {
   }
 };
 
-export const fetchTvShowCredits = async (tvShowId, apiKey, language) => {
-  const url = `https://api.themoviedb.org/3/tv/${tvShowId}/credits?language=${language}`;
+export const fetchTvShowCredits = async (serieId, apiKey, language) => {
+  const url = `https://api.themoviedb.org/3/tv/${serieId}/credits?language=${language}`;
 
   const options = {
     method: "GET",
@@ -436,7 +434,7 @@ export const fetchTvShowGenres = async (apiKey, language) => {
 };
 
 export const searchAll = async (name, apiKey, language, page) => {
-  const url = `https://api.themoviedb.org/3/search/multi?query=${name}&include_adult=true&language=${language}&page=${page}`;
+  const url = `https://api.themoviedb.org/3/search/multi?query=${name}&include_adult=false&language=${language}&page=${page}`;
   const options = {
     method: "GET",
     headers: {
@@ -627,7 +625,7 @@ export const fetchEpisodeDetails = async (
   }
 };
 
-export const testFetch = async (movieId) => {
+export const fetchLogos = async (movieId) => {
   const url = `https://api.themoviedb.org/3/movie/${movieId}/images`;
   const options = {
     method: "GET",
@@ -642,7 +640,7 @@ export const testFetch = async (movieId) => {
     const response = await fetch(url, options);
     const data = await response.json();
 
-    // console.log(data);
+    // console.log("fetchLogos->", data);
     return data;
   } catch (error) {
     console.error("Error fetching episode details:", error);
