@@ -250,7 +250,7 @@ export const fetchTrendingSeries = async (apiKey, language) => {
     const response = await fetch(url, options);
     const data = await response.json();
 
-    // console.log("latestTvShows->", data);
+    console.log("TrendingSeries->", data);
 
     return data.results;
   } catch (error) {

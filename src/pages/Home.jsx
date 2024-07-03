@@ -1,42 +1,66 @@
 import { Header } from "../components/Header";
-import {
-  fetchDiscoverMovies,
-  fetchTrendingMovies,
-  fetchTrendingSeries,
-  fetchUpcomingMovies,
-} from "../services";
 import { useEffect, useState } from "react";
-
 import { useStateContext } from "../context/stateContext";
 import { Slider } from "../components/Slider";
-
 import CarouselSlider from "../components/Carousel";
 import ScrollToTop from "react-scroll-to-top";
+import {
+  useDiscoverMovies,
+  useUpcomingMovies,
+  useTrendingMovies,
+} from "../hooks/movieHooks";
+import { useTrendingSeries } from "../hooks/seriesHooks";
+import { Loading } from "../components/Loading";
 
-export function HomePage() {
+export function Home() {
   const { IMAGE_PATH, API_KEY, language, country, darkMode } =
     useStateContext();
-  const [latestMovies, setLatestMovies] = useState([]);
-  const [trendingMovies, setTrendingMovies] = useState([]);
-  const [discoverMovies, setDiscoverMovies] = useState([]);
-  const [trendingSeries, setTrendingSeries] = useState([]);
 
   const page = 1;
 
-  useEffect(() => {
-    fetchDiscoverMovies(API_KEY, language, country, page).then((data) => {
-      setDiscoverMovies(data.results);
-    });
-    fetchUpcomingMovies(API_KEY, language, country).then((data) => {
-      setLatestMovies(data.results);
-    });
-    fetchTrendingSeries(API_KEY, language).then(setTrendingSeries);
-    fetchTrendingMovies(API_KEY, language).then(setTrendingMovies);
-  }, [API_KEY, language, country]);
-
-  const color = darkMode ? "aliceblue" : "black";
+  const {
+    data: discoverMovies,
+    isLoading: isLoadingDiscoverMovies,
+    error: errorDiscoverMovies,
+  } = useDiscoverMovies(API_KEY, language, country, page);
+  const {
+    data: latestMovies,
+    isLoading: isLoadingLatestMovies,
+    error: errorLatestMovies,
+  } = useUpcomingMovies(API_KEY, language, country);
+  const {
+    data: trendingMovies,
+    isLoading: isLoadingTrendingMovies,
+    error: errorTrendingMovies,
+  } = useTrendingMovies(API_KEY, language);
+  const {
+    data: trendingSeries,
+    isLoading: isLoadingTrendingSeries,
+    error: errorTrendingSeries,
+  } = useTrendingSeries(API_KEY, language);
 
   const darkModeClass = darkMode ? "dark" : "";
+  const color = darkMode ? "aliceblue" : "black";
+
+  if (
+    isLoadingDiscoverMovies ||
+    isLoadingLatestMovies ||
+    isLoadingTrendingMovies ||
+    isLoadingTrendingSeries
+  ) {
+    return <Loading />;
+  }
+
+  if (
+    errorDiscoverMovies ||
+    errorLatestMovies ||
+    errorTrendingMovies ||
+    errorTrendingSeries
+  ) {
+    return <div>Error al cargar los datos</div>;
+  }
+
+  console.log("trendingseriescomponent->", trendingSeries);
 
   return (
     <div className={`all-body ${darkModeClass}`}>
@@ -45,7 +69,6 @@ export function HomePage() {
         <div className="title">
           <h1 id="title">MoWeb </h1>
 
-          {/* <img width={"50px"} src="/Movie_Maker_22593.png" alt="" /> */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="5em"

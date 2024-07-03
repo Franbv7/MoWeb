@@ -119,3 +119,10 @@ a {
 .css-1dehfy1 {
   margin: 10px;
 }
+
+.loading-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

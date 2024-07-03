@@ -79,10 +79,18 @@ export function PersonDetail() {
                 <li key={movie.id}>
                   {/* <h4>{movie.title}</h4> */}
                   <Link to={`/movie/${movie.id}`}>
-                    <img
-                      src={`${MOVIE_IMAGE_PATH}${movie.poster_path}`}
-                      alt=""
-                    />
+                    {movie.poster_path ? (
+                      <img
+                        src={`${MOVIE_IMAGE_PATH}${movie.poster_path}`}
+                        alt=""
+                      />
+                    ) : (
+                      <img
+                        // style={{ width: "200px" }}
+                        src="/No-Image-Placeholder.svg"
+                        alt="poster"
+                      />
+                    )}
                   </Link>
                 </li>
               ))}

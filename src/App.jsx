@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 
-import { HomePage } from "./pages/Home";
+import { Home } from "./pages/Home";
 import { MovieById } from "./pages/MovieById";
 import { UpcomingMovies } from "./pages/UpcomingMovies";
 import { DiscoverMovies } from "./pages/DiscoverMovies";
@@ -11,12 +11,13 @@ import { SerieById } from "./pages/SerieById";
 import { EpisodeById } from "./pages/EpisodeById";
 import { SearchResultsPage } from "./pages/SearchResultsPage";
 import { PersonDetail } from "./pages/PersonDetail";
+import { Loading } from "./components/Loading";
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<Home />} />
         <Route path="/discover_movies" element={<DiscoverMovies />} />
         <Route path="/movie/:movieId" element={<MovieById />} />
         <Route path="/upcoming" element={<UpcomingMovies />} />
@@ -30,6 +31,7 @@ function App() {
           path="/episode/:seriesId/:seasonNumber/:episodeNumber"
           element={<EpisodeById />}
         />
+        <Route path="/loading" element={<Loading />} />
       </Routes>
     </>
   );

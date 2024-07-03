@@ -76,16 +76,14 @@ export function Header() {
           { item: "Discover Movies", direction: "/discover_movies" },
           { item: "Upcoming Movies", direction: "/upcoming" },
           { item: "Series", direction: "/tv" },
-          // { item: "Register", direction: "/register" },
-          // { item: "User", direction: "/user" },
+          // { item: "Loading", direction: "/loading" },
         ]
       : [
           { item: "Inicio", direction: "/" },
           { item: "Descubre Peliculas", direction: "/discover_movies" },
           { item: "Próximos títulos", direction: "/upcoming" },
           { item: "Series", direction: "/tv" },
-          // { item: "Registro", direction: "/register" },
-          // { item: "Usuario", direction: "/user" },
+          // { item: "Loading", direction: "/loading" },
         ];
 
   const color = darkMode ? "aliceblue" : "black";

@@ -46,10 +46,14 @@
 
 .person-movies ul {
   display: grid;
-  grid-template-columns: repeat(2, 2fr);
+  grid-template-columns: repeat(6, 2fr);
   justify-items: center;
   list-style: none;
   width: 90vw;
+}
+
+.person-movies ul img {
+  width: 200px;
 }
 
 .dark {
@@ -64,5 +68,13 @@
 
   .person-movies ul img {
     width: 43vw;
+  }
+
+  .person-movies ul {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    justify-items: center;
+    list-style: none;
+    width: 90vw;
   }
 }
