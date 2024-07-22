@@ -69,6 +69,8 @@ export const useMovieProviders = (movieId, API_KEY, providerLang) => {
       try {
         const result = await fetchMovieProviders(API_KEY, movieId);
         setData(result.results[providerLang] || result.results.US || {});
+
+        console.log(result);
       } catch (err) {
         setError(err);
       } finally {

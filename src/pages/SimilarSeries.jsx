@@ -74,7 +74,7 @@ export function SimilarSeries() {
                       ) : (
                         <u>Release date:</u>
                       )}{" "}
-                      {formatDate(results.release_date)}
+                      {formatDate(results?.first_air_date)}
                     </p>
 
                     <p>

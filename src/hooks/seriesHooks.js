@@ -200,7 +200,7 @@ export const useTrendingSeries = (API_KEY, language) => {
       try {
         const result = await fetchTrendingSeries(API_KEY, language);
         setData(result);
-        console.log("trendingSeries Hook ->", result);
+        // console.log("trendingSeries Hook ->", result);
       } catch (err) {
         setError(err);
       } finally {

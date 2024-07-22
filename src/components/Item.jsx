@@ -4,15 +4,7 @@ import { useStateContext } from "../context/stateContext";
 function Item({ item }) {
   const { IMAGE_PATH, API_KEY } = useStateContext();
   return (
-    <Paper
-    // className="papel"
-    // style={{
-    //   display: "flex",
-    //   justifyContent: "center",
-    //   flexDirection: "column",
-    //   alignItems: "center",
-    // }}
-    >
+    <Paper>
       <img
         src={`${IMAGE_PATH}${item.backdrop_path}`}
         alt={item.title}
@@ -25,8 +17,6 @@ function Item({ item }) {
       >
         <h2>{item.title}</h2>
       </div>
-
-      {/* <Button className="CheckButton">Check it out!</Button> */}
     </Paper>
   );
 }

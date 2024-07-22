@@ -9,7 +9,6 @@ export function Loading() {
   const darkModeClass = darkMode ? "dark" : "";
   return (
     <>
-      {/* <Header /> */}
       <div className={`loading-page ${darkModeClass}`}>
         <Bars
           height="80"

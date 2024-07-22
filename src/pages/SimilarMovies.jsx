@@ -46,7 +46,6 @@ export function SimilarMovies() {
       <Header />
       <div className={`all-body ${darkModeClass}`}>
         <div className={`search-results-body ${darkModeClass}`}>
-          {/* <h1>Similar to: {originMovie?.title}</h1> */}
           <div>
             <ul className={`search-results-list ${darkModeClass}`}>
               {similarMovies?.map((results) => (

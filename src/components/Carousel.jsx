@@ -25,12 +25,4 @@ function CarouselSlider({ items, linkBase, imageSource, imageAlt, itemName }) {
   );
 }
 
-// CarouselSlider.propTypes = {
-//   items: PropTypes.array.isRequired,
-//   linkBase: PropTypes.string.isRequired,
-//   imageSource: PropTypes.func.isRequired,
-//   imageAlt: PropTypes.func.isRequired,
-//   itemName: PropTypes.func.isRequired,
-// };
-
 export default CarouselSlider;

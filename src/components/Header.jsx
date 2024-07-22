@@ -76,14 +76,12 @@ export function Header() {
           { item: "Discover Movies", direction: "/discover_movies" },
           { item: "Upcoming Movies", direction: "/upcoming" },
           { item: "Series", direction: "/tv" },
-          // { item: "Loading", direction: "/loading" },
         ]
       : [
           { item: "Inicio", direction: "/" },
           { item: "Descubre Peliculas", direction: "/discover_movies" },
           { item: "Próximos títulos", direction: "/upcoming" },
           { item: "Series", direction: "/tv" },
-          // { item: "Loading", direction: "/loading" },
         ];
 
   const color = darkMode ? "aliceblue" : "black";
@@ -194,9 +192,6 @@ export function Header() {
             </svg>
           </Button>
         </form>
-        {/* <Link className="user-link" to={`/user`}>
-          <Avatar alt="User" src="/static/images/avatar/1.jpg" />
-        </Link> */}
 
         <DarkModeSwitch checked={checked} onChange={handleChangeDarkMode} />
       </nav>

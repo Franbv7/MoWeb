@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Tabs,
   Tab,
   Box,
-  List,
+  // List,
   ListItem,
   ListItemText,
-  Typography,
+  // Typography,
   AppBar,
-  Grid,
+  // Grid,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useStateContext } from "../context/stateContext";
@@ -57,7 +57,6 @@ export function NestTabs({
                     sx={{
                       display: "flex",
                       flexDirection: "column",
-                      //   borderBottom: "1px solid black",
                       color: color,
                     }}
                   >
@@ -103,7 +102,6 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          {/* <Typography>{children}</Typography> */}
           <>{children}</>
         </Box>
       )}

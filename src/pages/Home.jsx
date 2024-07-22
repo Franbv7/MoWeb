@@ -1,5 +1,4 @@
 import { Header } from "../components/Header";
-import { useEffect, useState } from "react";
 import { useStateContext } from "../context/stateContext";
 import { Slider } from "../components/Slider";
 import CarouselSlider from "../components/Carousel";
@@ -59,8 +58,6 @@ export function Home() {
   ) {
     return <div>Error al cargar los datos</div>;
   }
-
-  console.log("trendingseriescomponent->", trendingSeries);
 
   return (
     <div className={`all-body ${darkModeClass}`}>

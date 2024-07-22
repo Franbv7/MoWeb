@@ -1,4 +1,3 @@
-// src/components/CustomRating.js
 import React from "react";
 import { Rating } from "@mui/material";
 import { styled } from "@mui/material/styles";
