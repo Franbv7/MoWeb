@@ -4,7 +4,7 @@ import { useStateContext } from "../context/stateContext";
 import { Pagination } from "@mui/material";
 import CustomRating from "../components/CustomRating";
 import { formatDate } from "../utils/formatDate";
-import { useSeries, useTvShowGenres } from "../hooks/seriesHooks";
+import { useSeries, useSerieGenres } from "../hooks/seriesHooks";
 
 import "../styles/DiscoverSeries.css";
 import "../styles/App.css";
@@ -27,7 +27,7 @@ export function LatestSeries() {
     data: genres,
     isLoading: isLoadingGenres,
     error: errorGenres,
-  } = useTvShowGenres(API_KEY, language);
+  } = useSerieGenres(API_KEY, language);
 
   const darkModeClass = darkMode ? "dark" : "";
 

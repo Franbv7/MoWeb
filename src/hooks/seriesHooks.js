@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import {
-  fetchTvShowById,
-  fetchTvShowCredits,
+  fetchSerieById,
+  fetchSerieCredits,
   fetchSeasonDetails,
   fetchSeriesImages,
   fetchSeries,
-  fetchTvShowGenres,
+  fetchSerieGenres,
   fetchEpisodeDetails,
   fetchTrendingSeries,
 } from "../services/index";
@@ -18,7 +18,7 @@ export const useTvShowDetails = (serieId, API_KEY, language) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await fetchTvShowById(serieId, API_KEY, language);
+        const result = await fetchSerieById(serieId, API_KEY, language);
         setData(result);
       } catch (err) {
         setError(err);
@@ -41,7 +41,7 @@ export const useTvShowCredits = (serieId, API_KEY, language) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await fetchTvShowCredits(serieId, API_KEY, language);
+        const result = await fetchSerieCredits(serieId, API_KEY, language);
         setData(result);
       } catch (err) {
         setError(err);
@@ -132,7 +132,7 @@ export const useSeries = (API_KEY, country, language, page) => {
   return { data, isLoading, error, totalPages };
 };
 
-export const useTvShowGenres = (API_KEY, language) => {
+export const useSerieGenres = (API_KEY, language) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -140,7 +140,7 @@ export const useTvShowGenres = (API_KEY, language) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await fetchTvShowGenres(API_KEY, language);
+        const result = await fetchSerieGenres(API_KEY, language);
         setData(result.genres);
       } catch (err) {
         setError(err);

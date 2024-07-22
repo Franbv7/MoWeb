@@ -3,7 +3,7 @@ import { Header } from "../components/Header";
 import {
   fetchMovieGenres,
   fetchSimilarSeries,
-  fetchTvShowById,
+  fetchSerieById,
 } from "../services";
 import { Link, useParams } from "react-router-dom";
 import { useStateContext } from "../context/stateContext";
@@ -24,7 +24,7 @@ export function SimilarSeries() {
   useEffect(() => {
     if (serieId) {
       fetchSimilarSeries(serieId, API_KEY, language).then(setSimilarSeries);
-      fetchTvShowById(serieId, API_KEY, language).then(setOriginSerie);
+      fetchSerieById(serieId, API_KEY, language).then(setOriginSerie);
       fetchMovieGenres(API_KEY, language).then((data) => {
         setGenres(data.genres);
       });

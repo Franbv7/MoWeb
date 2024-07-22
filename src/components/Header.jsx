@@ -75,13 +75,13 @@ export function Header() {
           { item: "Home", direction: "/" },
           { item: "Discover Movies", direction: "/discover_movies" },
           { item: "Upcoming Movies", direction: "/upcoming" },
-          { item: "Series", direction: "/tv" },
+          { item: "Series", direction: "/series" },
         ]
       : [
           { item: "Inicio", direction: "/" },
           { item: "Descubre Peliculas", direction: "/discover_movies" },
           { item: "Próximos títulos", direction: "/upcoming" },
-          { item: "Series", direction: "/tv" },
+          { item: "Series", direction: "/series" },
         ];
 
   const color = darkMode ? "aliceblue" : "black";

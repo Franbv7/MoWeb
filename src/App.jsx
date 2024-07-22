@@ -21,7 +21,7 @@ function App() {
         <Route path="/discover_movies" element={<DiscoverMovies />} />
         <Route path="/movie/:movieId" element={<MovieById />} />
         <Route path="/upcoming" element={<UpcomingMovies />} />
-        <Route path="/tv" element={<LatestSeries />} />
+        <Route path="/series" element={<LatestSeries />} />
         <Route path="/tv/:serieId" element={<SerieById />} />
         <Route path="/search" element={<SearchResultsPage />} />
         <Route path="/person/:personId" element={<PersonDetail />} />

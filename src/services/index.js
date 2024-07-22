@@ -1,148 +1,146 @@
-export const createRequestToken = async (bearerToken) => {
-  try {
-    const response = await fetch(
-      "https://api.themoviedb.org/3/authentication/token/new",
-      {
-        method: "GET",
-        headers: {
-          accept: "application/json",
-          Authorization: `Bearer ${bearerToken}`,
-        },
-      }
-    );
-    const data = await response.json();
-    if (data.success) {
-      return data.request_token;
-    } else {
-      throw new Error(data.status_message);
-    }
-  } catch (error) {
-    console.error("Error creating request token:", error);
-    return null;
-  }
-};
+// export const createRequestToken = async (bearerToken) => {
+//   try {
+//     const response = await fetch(
+//       "https://api.themoviedb.org/3/authentication/token/new",
+//       {
+//         method: "GET",
+//         headers: {
+//           accept: "application/json",
+//           Authorization: `Bearer ${bearerToken}`,
+//         },
+//       }
+//     );
+//     const data = await response.json();
+//     if (data.success) {
+//       return data.request_token;
+//     } else {
+//       throw new Error(data.status_message);
+//     }
+//   } catch (error) {
+//     console.error("Error creating request token:", error);
+//     return null;
+//   }
+// };
 
-// services/index.js
+// export const createSession = async (requestToken, bearerToken) => {
+//   try {
+//     const response = await fetch(
+//       "https://api.themoviedb.org/3/authentication/session/new",
+//       {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//           Authorization: `Bearer ${bearerToken}`,
+//         },
+//         body: JSON.stringify({
+//           request_token: requestToken,
+//         }),
+//       }
+//     );
+//     const data = await response.json();
+//     if (data.success) {
+//       return data.session_id;
+//     } else {
+//       throw new Error(data.status_message);
+//     }
+//   } catch (error) {
+//     console.error("Error creating session:", error);
+//     return null;
+//   }
+// };
 
-export const createSession = async (requestToken, bearerToken) => {
-  try {
-    const response = await fetch(
-      "https://api.themoviedb.org/3/authentication/session/new",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${bearerToken}`,
-        },
-        body: JSON.stringify({
-          request_token: requestToken,
-        }),
-      }
-    );
-    const data = await response.json();
-    if (data.success) {
-      return data.session_id;
-    } else {
-      throw new Error(data.status_message);
-    }
-  } catch (error) {
-    console.error("Error creating session:", error);
-    return null;
-  }
-};
+// export const registerUser = async (username, password, bearerToken) => {
+//   try {
+//     // Obtener un nuevo token de autenticación
+//     const tokenResponse = await fetch(
+//       "https://api.themoviedb.org/3/authentication/token/new",
+//       {
+//         method: "GET",
+//         headers: {
+//           accept: "application/json",
+//           Authorization: `Bearer ${bearerToken}`,
+//         },
+//       }
+//     );
+//     const tokenData = await tokenResponse.json();
 
-export const registerUser = async (username, password, bearerToken) => {
-  try {
-    // Obtener un nuevo token de autenticación
-    const tokenResponse = await fetch(
-      "https://api.themoviedb.org/3/authentication/token/new",
-      {
-        method: "GET",
-        headers: {
-          accept: "application/json",
-          Authorization: `Bearer ${bearerToken}`,
-        },
-      }
-    );
-    const tokenData = await tokenResponse.json();
+//     if (!tokenData.success) {
+//       throw new Error(tokenData.status_message);
+//     }
 
-    if (!tokenData.success) {
-      throw new Error(tokenData.status_message);
-    }
+//     // Validar el token con las credenciales del usuario
+//     const loginResponse = await fetch(
+//       "https://api.themoviedb.org/3/authentication/token/validate_with_login",
+//       {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//           Authorization: `Bearer ${bearerToken}`,
+//         },
+//         body: JSON.stringify({
+//           username: username,
+//           password: password,
+//           request_token: tokenData.request_token,
+//         }),
+//       }
+//     );
+//     const loginData = await loginResponse.json();
 
-    // Validar el token con las credenciales del usuario
-    const loginResponse = await fetch(
-      "https://api.themoviedb.org/3/authentication/token/validate_with_login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${bearerToken}`,
-        },
-        body: JSON.stringify({
-          username: username,
-          password: password,
-          request_token: tokenData.request_token,
-        }),
-      }
-    );
-    const loginData = await loginResponse.json();
+//     if (!loginData.success) {
+//       throw new Error(loginData.status_message);
+//     }
 
-    if (!loginData.success) {
-      throw new Error(loginData.status_message);
-    }
+//     // Crear una nueva sesión usando el token validado
+//     const sessionResponse = await fetch(
+//       "https://api.themoviedb.org/3/authentication/session/new",
+//       {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//           Authorization: `Bearer ${bearerToken}`,
+//         },
+//         body: JSON.stringify({
+//           request_token: loginData.request_token,
+//         }),
+//       }
+//     );
+//     const sessionData = await sessionResponse.json();
 
-    // Crear una nueva sesión usando el token validado
-    const sessionResponse = await fetch(
-      "https://api.themoviedb.org/3/authentication/session/new",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${bearerToken}`,
-        },
-        body: JSON.stringify({
-          request_token: loginData.request_token,
-        }),
-      }
-    );
-    const sessionData = await sessionResponse.json();
+//     if (sessionData.success) {
+//       console.log("Registro exitoso!", sessionData.session_id);
+//       return sessionData.session_id;
+//     } else {
+//       console.error(
+//         "Error en la creación de sesión:",
+//         sessionData.status_message
+//       );
+//       return null;
+//     }
+//   } catch (error) {
+//     console.error("Error:", error.message);
+//     return null;
+//   }
+// };
 
-    if (sessionData.success) {
-      console.log("Registro exitoso!", sessionData.session_id);
-      return sessionData.session_id;
-    } else {
-      console.error(
-        "Error en la creación de sesión:",
-        sessionData.status_message
-      );
-      return null;
-    }
-  } catch (error) {
-    console.error("Error:", error.message);
-    return null;
-  }
-};
+// export const fetchLatestMovies = async (apiKey, language, country, page) => {
+//   const url = "https://api.themoviedb.org/3/movie/latest";
+//   const options = {
+//     method: "GET",
+//     headers: {
+//       accept: "application/json",
+//       Authorization: `Bearer ${apiKey}`,
+//     },
+//   };
+//   try {
+//     const response = await fetch(url, options);
+//     const data = await response.json();
+//     console.log(data);
 
-export const fetchLatestMovies = async (apiKey, language, country, page) => {
-  const url = "https://api.themoviedb.org/3/movie/latest";
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization: `Bearer ${apiKey}`,
-    },
-  };
-  try {
-    const response = await fetch(url, options);
-    const data = await response.json();
-    console.log(data);
-
-    return data;
-  } catch (error) {
-    console.error("Error fetching latest movies:", error);
-  }
-};
+//     return data;
+//   } catch (error) {
+//     console.error("Error fetching latest movies:", error);
+//   }
+// };
 
 export const fetchDiscoverMovies = async (apiKey, language, country, page) => {
   const url = `https://api.themoviedb.org/3/discover/movie?language=${language}&page=${page}&with_origin_country=${country}`;
@@ -165,27 +163,27 @@ export const fetchDiscoverMovies = async (apiKey, language, country, page) => {
   }
 };
 
-export const fetchMovieByName = async (name, apiKey, language) => {
-  const url = `https://api.themoviedb.org/3/search/movie?query=${name}&include_adult=false&language=${language}page=1`;
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization: `Bearer ${apiKey}`,
-    },
-  };
+// export const fetchMovieByName = async (name, apiKey, language) => {
+//   const url = `https://api.themoviedb.org/3/search/movie?query=${name}&include_adult=false&language=${language}page=1`;
+//   const options = {
+//     method: "GET",
+//     headers: {
+//       accept: "application/json",
+//       Authorization: `Bearer ${apiKey}`,
+//     },
+//   };
 
-  try {
-    const response = await fetch(url, options);
-    const data = await response.json();
+//   try {
+//     const response = await fetch(url, options);
+//     const data = await response.json();
 
-    console.log("Movie by name->", data.results);
+//     console.log("Movie by name->", data.results);
 
-    return data.results;
-  } catch (error) {
-    console.error("Error al realizar la solicitud:", error.message);
-  }
-};
+//     return data.results;
+//   } catch (error) {
+//     console.error("Error al realizar la solicitud:", error.message);
+//   }
+// };
 
 export const fetchUpcomingMovies = async (
   apiKey,
@@ -280,30 +278,30 @@ export const fetchTrendingMovies = async (apiKey, language) => {
   }
 };
 
-export const fetchTvShowByName = async (name, apiKey, language) => {
-  const url = `https://api.themoviedb.org/3/search/tv?query=${name}&include_adult=false&language=${language}&page=1`;
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization: `Bearer ${apiKey}`,
-    },
-  };
+// export const fetchTvShowByName = async (name, apiKey, language) => {
+//   const url = `https://api.themoviedb.org/3/search/tv?query=${name}&include_adult=false&language=${language}&page=1`;
+//   const options = {
+//     method: "GET",
+//     headers: {
+//       accept: "application/json",
+//       Authorization: `Bearer ${apiKey}`,
+//     },
+//   };
 
-  try {
-    const response = await fetch(url, options);
-    const data = await response.json();
+//   try {
+//     const response = await fetch(url, options);
+//     const data = await response.json();
 
-    const results = data.results;
-    console.log("Tv Show By Name->", results);
-    return results;
-  } catch (error) {
-    console.error("Error al realizar la solicitud:", error.message);
-    throw error;
-  }
-};
+//     const results = data.results;
+//     console.log("Tv Show By Name->", results);
+//     return results;
+//   } catch (error) {
+//     console.error("Error al realizar la solicitud:", error.message);
+//     throw error;
+//   }
+// };
 
-export const fetchTvShowById = async (serieId, apiKey, language) => {
+export const fetchSerieById = async (serieId, apiKey, language) => {
   const url = `https://api.themoviedb.org/3/tv/${serieId}?language=${language}`;
   const options = {
     method: "GET",
@@ -325,26 +323,26 @@ export const fetchTvShowById = async (serieId, apiKey, language) => {
   }
 };
 
-export const fetchTvImages = async (id, apiKey) => {
-  const url = `https://api.themoviedb.org/3/tv/${id}/images`;
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization: `Bearer ${apiKey}`,
-    },
-  };
+// export const fetchTvImages = async (id, apiKey) => {
+//   const url = `https://api.themoviedb.org/3/tv/${id}/images`;
+//   const options = {
+//     method: "GET",
+//     headers: {
+//       accept: "application/json",
+//       Authorization: `Bearer ${apiKey}`,
+//     },
+//   };
 
-  try {
-    const response = await fetch(url, options);
-    const data = await response.json();
-    // console.log("Tv Show Images ->", data);
+//   try {
+//     const response = await fetch(url, options);
+//     const data = await response.json();
+//     // console.log("Tv Show Images ->", data);
 
-    return data;
-  } catch (error) {
-    console.error("Error fetching Tv Show Images:", error.message);
-  }
-};
+//     return data;
+//   } catch (error) {
+//     console.error("Error fetching Tv Show Images:", error.message);
+//   }
+// };
 
 export const fetchCredits = async (movieId, apiKey, language) => {
   const url = `https://api.themoviedb.org/3/movie/${movieId}/credits?language=${language}`;
@@ -367,7 +365,7 @@ export const fetchCredits = async (movieId, apiKey, language) => {
   }
 };
 
-export const fetchTvShowCredits = async (serieId, apiKey, language) => {
+export const fetchSerieCredits = async (serieId, apiKey, language) => {
   const url = `https://api.themoviedb.org/3/tv/${serieId}/credits?language=${language}`;
 
   const options = {
@@ -410,7 +408,8 @@ export const fetchMovieGenres = async (apiKey, language) => {
     throw error;
   }
 };
-export const fetchTvShowGenres = async (apiKey, language) => {
+
+export const fetchSerieGenres = async (apiKey, language) => {
   const url = `https://api.themoviedb.org/3/genre/tv/list?language=${language}`;
   const options = {
     method: "GET",
